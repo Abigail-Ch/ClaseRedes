@@ -28,16 +28,15 @@ let ledH = document.getElementById("ledH");
 let ledT = document.getElementById("ledT");
 
 if(humedad <= 8){
-    ledH.style.background = "red";
+ledH.style.background = "red";
 }else{
-    ledH.style.background = "green";
+ledH.style.background = "green";
 }
 
 if(temp <= 25){
-    ledT.style.background = "blue";
+ledT.style.background = "blue";
 }else{
-    ledT.style.background = "orange";
+ledT.style.background = "orange";
 }
 
 }
-
