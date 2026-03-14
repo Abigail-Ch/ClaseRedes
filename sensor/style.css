@@ -14,17 +14,17 @@ height:100vh;
 .login-box{
 background:#eeeeee;
 width:320px;
-padding:70px 35px 35px 35px;
+padding:80px 35px 35px 35px;
 position:relative;
 }
 
 .avatar{
-width:90px;
-height:90px;
+width:100px;
+height:100px;
 background:#4a3a4f;
 border-radius:50%;
 position:absolute;
-top:-45px;
+top:-50px;
 left:50%;
 transform:translateX(-50%);
 display:flex;
@@ -33,8 +33,8 @@ align-items:center;
 }
 
 .avatar svg{
-width:45px;
-height:45px;
+width:55px;
+height:55px;
 fill:white;
 }
 
