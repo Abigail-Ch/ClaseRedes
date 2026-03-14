@@ -8,19 +8,15 @@
 
 <body>
 
-<!-- LOGIN -->
 <div id="login" class="login-container">
 
 <div class="login-box">
 
 <div class="avatar">
-
-<!-- icono vectorial -->
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
 </svg>
-
 </div>
 
 <label>Contraseña</label>
@@ -37,22 +33,8 @@
 
 </div>
 
-
-<!-- INTERFAZ DEL SISTEMA -->
 <div id="sistema" style="display:none;">
-
 <h1>Sistema de monitoreo de sensores</h1>
-
-<h3>Humedad</h3>
-<input type="range" id="humedad" min="0" max="20" oninput="actualizar()">
-<p id="valorH"></p>
-<div class="led" id="ledH"></div>
-
-<h3>Temperatura</h3>
-<input type="range" id="temp" min="0" max="50" oninput="actualizar()">
-<p id="valorT"></p>
-<div class="led" id="ledT"></div>
-
 </div>
 
 <script src="script.js"></script>
