@@ -1,9 +1,66 @@
 body{
 font-family: Arial;
 text-align:center;
-background:#111;
-color:white;
+background:#92759a;
+color:#333;
+margin:0;
 }
+
+/* CONTENEDOR LOGIN */
+
+.login-container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* CAJA */
+
+.login-box{
+background:#eeeeee;
+width:300px;
+padding:40px;
+position:relative;
+}
+
+/* AVATAR */
+
+.avatar{
+width:80px;
+height:80px;
+background:#4a3a4f;
+border-radius:50%;
+position:absolute;
+top:-40px;
+left:110px;
+}
+
+/* INPUTS */
+
+.login-box input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:20px;
+border:none;
+background:#cbb8cc;
+}
+
+/* BOTON */
+
+.login-box button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:20px;
+background:#cbb8cc;
+margin-top:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* LED */
 
 .led{
 width:40px;
@@ -12,5 +69,3 @@ border-radius:50%;
 background:red;
 margin:auto;
 }
-
-
