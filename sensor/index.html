@@ -8,15 +8,24 @@
 <body>
 
 <!-- LOGIN -->
-<div id="login">
-    <h2>Inicio de sesión</h2>
+<div id="login" class="login-container">
 
-    <input type="text" id="usuario" placeholder="Usuario">
-    <input type="password" id="password" placeholder="Contraseña">
+    <div class="login-box">
 
-    <button onclick="login()">Entrar</button>
+        <div class="avatar"></div>
 
-    <p id="error"></p>
+        <label>Contraseña</label>
+        <input type="password" id="password">
+
+        <label>Usuario</label>
+        <input type="text" id="usuario">
+
+        <button onclick="login()">LOGIN</button>
+
+        <p id="error"></p>
+
+    </div>
+
 </div>
 
 
@@ -43,5 +52,3 @@
 
 </body>
 </html>
-
-
