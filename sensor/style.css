@@ -1,5 +1,5 @@
 body{
-font-family: Arial;
+font-family:Arial;
 background:#92759a;
 margin:0;
 }
@@ -18,9 +18,9 @@ height:100vh;
 .login-box{
 background:#eeeeee;
 width:300px;
-padding:50px 40px 40px 40px;
+padding:60px 40px 40px 40px;
 position:relative;
-text-align:center;
+text-align:left;
 }
 
 /* AVATAR */
@@ -34,14 +34,25 @@ position:absolute;
 top:-45px;
 left:50%;
 transform:translateX(-50%);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* ICONO */
+
+.avatar svg{
+width:45px;
+height:45px;
+fill:white;
 }
 
 /* TEXTOS */
 
 .login-box label{
 display:block;
-text-align:left;
 margin-top:10px;
+font-size:14px;
 }
 
 /* INPUTS */
@@ -50,9 +61,10 @@ margin-top:10px;
 width:100%;
 padding:12px;
 margin-top:5px;
-border-radius:20px;
 border:none;
+border-radius:20px;
 background:#cbb8cc;
+outline:none;
 }
 
 /* BOTON */
@@ -61,14 +73,14 @@ background:#cbb8cc;
 width:100%;
 padding:12px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:#cbb8cc;
 margin-top:20px;
-cursor:pointer;
 font-weight:bold;
+cursor:pointer;
 }
 
-/* LED */
+/* LEDS */
 
 .led{
 width:40px;
