@@ -4,16 +4,12 @@ background:#92759a;
 margin:0;
 }
 
-/* CENTRAR LOGIN */
-
 .login-container{
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
 }
-
-/* CAJA */
 
 .login-box{
 background:#eeeeee;
@@ -22,7 +18,7 @@ padding:70px 35px 35px 35px;
 position:relative;
 }
 
-/* AVATAR */
+/* avatar */
 
 .avatar{
 width:90px;
@@ -44,36 +40,34 @@ height:45px;
 fill:white;
 }
 
-/* TEXTOS */
+/* textos */
 
 .login-box label{
 display:block;
-font-size:14px;
 margin-top:12px;
+font-size:14px;
 }
 
-/* INPUTS */
+/* INPUTS Y BOTON MISMO TAMAÑO */
 
-.login-box input{
-width:100%;
-height:40px;
-border:none;
-border-radius:25px;
-background:#cbb8cc;
-padding-left:15px;
-margin-top:5px;
-box-sizing:border-box;
-}
-
-/* BOTON */
-
+.login-box input,
 .login-box button{
 width:100%;
-height:40px;
+height:45px;      /* mismo tamaño */
 border:none;
 border-radius:25px;
 background:#cbb8cc;
+margin-top:8px;
+box-sizing:border-box;
+padding-left:15px;
+font-size:14px;
+}
+
+/* botón */
+
+.login-box button{
 margin-top:20px;
 font-weight:bold;
 cursor:pointer;
+padding-left:0;
 }
