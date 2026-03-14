@@ -4,7 +4,7 @@ background:#92759a;
 margin:0;
 }
 
-/* CONTENEDOR LOGIN */
+/* CENTRAR LOGIN */
 
 .login-container{
 display:flex;
@@ -17,10 +17,9 @@ height:100vh;
 
 .login-box{
 background:#eeeeee;
-width:300px;
-padding:60px 40px 40px 40px;
+width:320px;
+padding:70px 35px 35px 35px;
 position:relative;
-text-align:left;
 }
 
 /* AVATAR */
@@ -39,8 +38,6 @@ justify-content:center;
 align-items:center;
 }
 
-/* ICONO */
-
 .avatar svg{
 width:45px;
 height:45px;
@@ -51,41 +48,32 @@ fill:white;
 
 .login-box label{
 display:block;
-margin-top:10px;
 font-size:14px;
+margin-top:12px;
 }
 
 /* INPUTS */
 
 .login-box input{
 width:100%;
-padding:12px;
-margin-top:5px;
+height:40px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:#cbb8cc;
-outline:none;
+padding-left:15px;
+margin-top:5px;
+box-sizing:border-box;
 }
 
 /* BOTON */
 
 .login-box button{
 width:100%;
-padding:12px;
+height:40px;
 border:none;
 border-radius:25px;
 background:#cbb8cc;
 margin-top:20px;
 font-weight:bold;
 cursor:pointer;
-}
-
-/* LEDS */
-
-.led{
-width:40px;
-height:40px;
-border-radius:50%;
-background:red;
-margin:auto;
 }
