@@ -18,8 +18,6 @@ padding:70px 35px 35px 35px;
 position:relative;
 }
 
-/* avatar */
-
 .avatar{
 width:90px;
 height:90px;
@@ -40,20 +38,16 @@ height:45px;
 fill:white;
 }
 
-/* textos */
-
 .login-box label{
 display:block;
 margin-top:12px;
 font-size:14px;
 }
 
-/* INPUTS Y BOTON MISMO TAMAÑO */
-
 .login-box input,
 .login-box button{
 width:100%;
-height:45px;      /* mismo tamaño */
+height:45px;
 border:none;
 border-radius:25px;
 background:#cbb8cc;
@@ -63,11 +57,17 @@ padding-left:15px;
 font-size:14px;
 }
 
-/* botón */
-
 .login-box button{
 margin-top:20px;
 font-weight:bold;
 cursor:pointer;
 padding-left:0;
+}
+
+.led{
+width:40px;
+height:40px;
+border-radius:50%;
+background:red;
+margin:auto;
 }
