@@ -1,64 +1,35 @@
-function login(){
-
-let user="admin";
-let pass="1234";
-
-let u=document.getElementById("usuario").value;
-let p=document.getElementById("password").value;
-
-if(u==user && p==pass){
-
-document.getElementById("login").style.display="none";
-document.getElementById("sistema").style.display="block";
-
-}else{
-
-document.getElementById("error").innerHTML="Usuario incorrecto";
-
-}
-
-}
-
-
-
 function actualizar(){
 
-let humedad=document.getElementById("humedad").value;
-let temp=document.getElementById("temp").value;
+let humedad = document.getElementById("humedad").value;
+let temp = document.getElementById("temp").value;
 
-document.getElementById("valorH").innerHTML=humedad+"%";
-document.getElementById("valorT").innerHTML=temp+"°C";
+/* mostrar valores */
 
+document.getElementById("valorH").innerHTML = humedad;
+document.getElementById("valorT").innerHTML = temp;
 
-let ledH=document.getElementById("ledH");
-let ledT=document.getElementById("ledT");
+/* leds */
 
+let ledH = document.getElementById("ledH");
+let ledT = document.getElementById("ledT");
 
-
-/* HUMEDAD */
+/* humedad */
 
 if(humedad <= 30){
-
 ledH.src="img/led_rojo.png";
-
-}else{
-
+}
+else{
 ledH.src="img/led_verde.png";
-
 }
 
-
-
-/* TEMPERATURA */
+/* temperatura */
 
 if(temp <= 25){
-
 ledT.src="img/led_azul.png";
-
-}else{
-
+}
+else{
 ledT.src="img/led_naranja.png";
-
 }
 
 }
+
