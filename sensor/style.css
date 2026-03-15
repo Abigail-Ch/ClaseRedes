@@ -1,45 +1,54 @@
 body{
 
 margin:0;
-font-family:Poppins;
+font-family: 'Poppins', sans-serif;
 color:white;
 
-/* degradado como el diseño */
+/* degradado parecido al de tu imagen */
+
 background: linear-gradient(
-to bottom,
-#c8bccb,
-#9a7a98,
-#6d3f6f
+180deg,
+#cfc3d4 0%,
+#9b7f9e 50%,
+#6a3f6f 100%
 );
 
 }
 
+
 /* TITULO */
 
 .titulo{
+
 text-align:center;
-padding-top:40px;
-margin-bottom:40px;
+margin-top:40px;
+margin-bottom:80px;
+
 }
 
 .titulo h1{
+
+font-size:42px;
 font-weight:300;
 letter-spacing:4px;
+
 }
 
 .titulo span{
-font-family:Pacifico;
-font-size:48px;
-font-weight:normal;
+
+font-family:'Pacifico', cursive;
+font-size:52px;
+
 }
 
-/* SENSOR */
+
+/* SECCION SENSOR */
 
 .sensor{
 
-width:80%;
+width:85%;
 margin:auto;
-margin-bottom:120px;
+margin-bottom:150px;
 text-align:center;
 
 }
@@ -48,21 +57,21 @@ text-align:center;
 
 display:inline-block;
 
-background:#d8d1d9;
+background:#dcd5df;
 color:black;
 
-padding:10px 40px;
+padding:12px 45px;
 
 border-radius:30px;
 
-font-weight:500;
-font-size:18px;
+font-size:20px;
 
-margin-bottom:40px;
+margin-bottom:50px;
 
 }
 
-/* CONTENIDO */
+
+/* CONTENEDOR PRINCIPAL */
 
 .contenido{
 
@@ -74,6 +83,8 @@ align-items:center;
 
 }
 
+
+
 /* LADO IZQUIERDO */
 
 .sensor-izquierda{
@@ -84,62 +95,83 @@ flex-direction:column;
 
 align-items:center;
 
+gap:20px;
+
 }
 
 .icono{
-width:120px;
-margin-bottom:20px;
+
+width:130px;
+
 }
+
+
 
 /* SLIDER */
 
 input[type=range]{
 
-width:250px;
-margin-top:10px;
+width:260px;
 
 }
 
-/* TEXTO SENSOR */
+
+
+/* TEXTO VALOR */
 
 .valor{
 
-margin-top:10px;
-font-size:18px;
+font-size:20px;
 
 }
+
+
 
 /* TARJETA MONITOREO */
 
 .monitor{
 
-background:#e7e1ea;
+background:#e6dfea;
 
-color:black;
+width:420px;
+height:300px;
 
-width:320px;
-
-height:240px;
-
-border-radius:25px;
+border-radius:30px;
 
 display:flex;
-
 flex-direction:column;
 
 align-items:center;
-
 justify-content:center;
 
+padding:20px;
+
+box-sizing:border-box;
+
 }
+
+
+
+/* TEXTO MONITOREO */
+
+.monitor h3{
+
+font-size:28px;   /* más grande */
+margin-bottom:25px;
+
+}
+
+
 
 /* LED */
 
 .led{
 
-width:110px;
+width:120px;
+height:auto;
 
-margin-top:10px;
+/* evita que cambie el tamaño del contenedor */
+
+object-fit:contain;
 
 }
-
