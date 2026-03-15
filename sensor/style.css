@@ -1,88 +1,197 @@
 body{
-font-family:Arial;
-text-align:center;
-background:#111;
+
+margin:0;
+font-family:Poppins;
 color:white;
+
+background: linear-gradient(
+180deg,
+#cfc4d4 0%,
+#9a7c9e 50%,
+#6a3d6f 100%
+);
+
 }
 
 
 /* TITULO */
 
 .titulo{
-margin-top:30px;
+
+text-align:center;
+font-size:42px;
+margin-top:50px;
+letter-spacing:4px;
+
+}
+
+.titulo span{
+
+font-family:Pacifico;
+font-size:52px;
+
 }
 
 
 /* SENSOR */
 
 .sensor{
-margin-top:60px;
+
+width:85%;
+margin:auto;
+margin-top:90px;
+text-align:center;
+
 }
 
 
 /* ETIQUETA */
 
 .etiqueta{
+
+display:inline-block;
+
 background:#D6CFD9;
 color:black;
-padding:10px 40px;
+
+padding:12px 50px;
+
 border-radius:30px;
-display:inline-block;
+
+font-size:18px;
+
+margin-bottom:50px;
+
 }
 
 
 /* CONTENEDOR */
 
 .contenedor{
+
 display:flex;
-justify-content:space-around;
+justify-content:space-between;
 align-items:center;
-margin-top:30px;
+
 }
 
 
 /* IZQUIERDA */
 
 .lado-izq{
+
 display:flex;
 flex-direction:column;
+
 align-items:center;
-gap:15px;
+
+gap:25px;
+
+width:300px;
+
 }
+
 
 .icono{
-width:120px;
+
+width:150px;
+
 }
 
 
-/* TARJETA MONITOREO */
+/* SLIDER HUMEDAD */
+
+input[type=range]{
+
+width:260px;
+
+}
+
+
+/* INPUT PROXIMIDAD */
+
+input[type=number]{
+
+width:200px;
+padding:10px;
+
+border-radius:8px;
+border:none;
+
+font-size:16px;
+
+}
+
+
+/* BOTON ENTER */
+
+button{
+
+padding:10px 20px;
+
+border:none;
+border-radius:10px;
+
+background:#6a3d6f;
+color:white;
+
+cursor:pointer;
+
+font-size:15px;
+
+}
+
+
+/* TEXTO VALOR */
+
+.lado-izq p{
+
+font-size:18px;
+
+}
+
+
+/* DERECHA */
+
+.lado-der{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+
+/* TARJETA */
 
 .monitor{
 
-width:350px;
-height:220px;
+width:420px;
+height:280px;
 
 background:#D6CFD9;
 
-border-radius:25px;
+border-radius:30px;
 
 display:flex;
 flex-direction:column;
 
 align-items:center;
+justify-content:flex-start;
 
-padding-top:10px;
+padding-top:25px;
 
 color:black;
 
 }
 
 
-/* TEXTO MONITOREO */
+/* TEXTO ESTADO MONITOREO */
 
-.estado{
+.monitor h3{
 
-margin-top:5px;
+font-size:28px;
+margin-bottom:10px;
 
 /* degradado */
 
@@ -109,11 +218,16 @@ display:flex;
 align-items:center;
 justify-content:center;
 
+margin-top:15px;
+
 }
 
 
-/* LED */
+/* IMAGEN LED */
 
 .ledBox img{
-width:80px;
+
+width:90px;
+height:auto;
+
 }
