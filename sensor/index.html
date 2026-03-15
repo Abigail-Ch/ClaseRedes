@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Sistema de Monitoreo</title>
-
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -27,21 +23,18 @@
 </div>
 
 
-
 <!-- SISTEMA -->
 
 <div id="sistema" style="display:none;">
 
-<div class="titulo">
-ESTADO DE LOS <span>Sensores</span>
-</div>
+<h1 class="titulo">Estado de los Sensores</h1>
 
 
-<!-- SENSOR HUMEDAD -->
+<!-- HUMEDAD -->
 
 <div class="sensor">
 
-<div class="etiqueta">SENSOR DE HÚMEDAD</div>
+<h3 class="etiqueta">Sensor de Humedad</h3>
 
 <div class="contenedor">
 
@@ -49,20 +42,18 @@ ESTADO DE LOS <span>Sensores</span>
 
 <img src="img/humedad.png" class="icono">
 
-<input type="range" id="humedad" min="0" max="100" value="40" oninput="actualizarH()">
+<input type="range" id="humedad" min="0" max="100" oninput="actualizarH()">
 
-<p>Húmedad <span id="valorH">40</span>%</p>
+<p>Humedad <span id="valorH">0</span>%</p>
 
 </div>
-
-<div class="lado-der">
 
 <div class="monitor">
 
-<h3 class="tituloMonitor">Estado de monitoreo</h3>
+<h3 class="estado">Estado de monitoreo</h3>
 
 <div class="ledBox">
-<img id="ledH" src="img/led_verde.png">
+<img id="ledH" src="img/led_rojo.png">
 </div>
 
 </div>
@@ -71,15 +62,12 @@ ESTADO DE LOS <span>Sensores</span>
 
 </div>
 
-</div>
 
-
-
-<!-- SENSOR PROXIMIDAD -->
+<!-- PROXIMIDAD -->
 
 <div class="sensor">
 
-<div class="etiqueta">SENSOR DE PROXIMIDAD</div>
+<h3 class="etiqueta">Sensor de Proximidad</h3>
 
 <div class="contenedor">
 
@@ -95,16 +83,12 @@ ESTADO DE LOS <span>Sensores</span>
 
 </div>
 
-<div class="lado-der">
-
 <div class="monitor">
 
-<h3 class="tituloMonitor">Estado de monitoreo</h3>
+<h3 class="estado">Estado de monitoreo</h3>
 
 <div class="ledBox">
 <img id="ledP" src="img/led_rojo.png">
-</div>
-
 </div>
 
 </div>
