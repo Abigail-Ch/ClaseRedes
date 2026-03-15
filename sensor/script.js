@@ -1,39 +1,63 @@
-function actualizar(){
+function login(){
 
-let humedad = document.getElementById("humedad").value;
+let user="Abigail";
+let pass="sensores";
 
-document.getElementById("valorH").innerHTML = humedad;
+let u=document.getElementById("usuario").value;
+let p=document.getElementById("password").value;
 
-let ledH = document.getElementById("ledH");
+if(u==user && p==pass){
 
-if(humedad <= 30){
-
-ledH.src="img/led_rojo.png";
+document.getElementById("login").style.display="none";
+document.getElementById("sistema").style.display="block";
 
 }else{
 
-ledH.src="img/led_verde.png";
+document.getElementById("error").innerHTML="Usuario incorrecto";
 
 }
 
 }
+
+
+
+function actualizarH(){
+
+let humedad=document.getElementById("humedad").value;
+
+document.getElementById("valorH").innerHTML=humedad;
+
+let led=document.getElementById("ledH");
+
+if(humedad<=30){
+
+led.src="img/led_rojo.png";
+
+}else{
+
+led.src="img/led_verde.png";
+
+}
+
+}
+
 
 
 function actualizarProximidad(){
 
-let distancia = document.getElementById("distancia").value;
+let distancia=document.getElementById("distancia").value;
 
-document.getElementById("valorP").innerHTML = distancia;
+document.getElementById("valorP").innerHTML=distancia;
 
-let ledP = document.getElementById("ledP");
+let led=document.getElementById("ledP");
 
-if(distancia <= 2){
+if(distancia<=2){
 
-ledP.src="img/led_verde.png";
+led.src="img/led_verde.png";
 
 }else{
 
-ledP.src="img/led_rojo.png";
+led.src="img/led_rojo.png";
 
 }
 
