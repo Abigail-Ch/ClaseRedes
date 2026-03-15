@@ -1,14 +1,11 @@
-/* fondo con degradado */
-
 body{
 
 margin:0;
 font-family:Arial;
 color:white;
+text-align:center;
 
 background:linear-gradient(#bfb6c7,#6e3c6e);
-
-text-align:center;
 
 }
 
@@ -30,13 +27,11 @@ background:white;
 color:black;
 
 padding:40px;
-
 border-radius:20px;
 
 width:300px;
 
 }
-
 
 .login-box input{
 
@@ -46,7 +41,6 @@ margin:10px 0;
 
 border-radius:10px;
 border:none;
-
 background:#eee;
 
 }
@@ -57,19 +51,17 @@ width:100%;
 padding:10px;
 
 border:none;
-
 background:#7a4b7a;
 
 color:white;
 
 border-radius:10px;
-
 cursor:pointer;
 
 }
 
 
-/* icono */
+/* ICONO */
 
 .avatar{
 
@@ -102,7 +94,6 @@ fill:white;
 .titulo{
 
 margin-top:50px;
-
 font-size:40px;
 
 }
@@ -110,13 +101,12 @@ font-size:40px;
 .titulo span{
 
 font-size:60px;
-
 font-family:cursive;
 
 }
 
 
-/* SECCION SENSOR */
+/* SENSOR */
 
 .sensor{
 
@@ -124,11 +114,9 @@ margin-top:100px;
 
 }
 
-
 .sensor-titulo{
 
 background:#d6cfd9;
-
 color:black;
 
 display:inline-block;
@@ -139,15 +127,11 @@ border-radius:30px;
 
 }
 
-
-/* CONTENIDO SENSOR */
-
 .sensor-contenido{
 
 display:flex;
 
 justify-content:center;
-
 align-items:center;
 
 gap:200px;
@@ -166,7 +150,7 @@ width:150px;
 }
 
 
-/* LED */
+/* LED REALISTA */
 
 .led{
 
@@ -175,19 +159,48 @@ height:80px;
 
 border-radius:50%;
 
-background:red;
-
 margin:auto;
+
+box-shadow:
+0 0 20px rgba(0,0,0,0.5),
+inset 0 4px 10px rgba(255,255,255,0.8),
+inset 0 -10px 20px rgba(0,0,0,0.6);
 
 }
 
 
-/* CAJA ESTADO */
+/* COLORES LED */
+
+.led-rojo{
+
+background:radial-gradient(circle at 30% 30%, #ff8a8a, #ff0000);
+
+}
+
+.led-verde{
+
+background:radial-gradient(circle at 30% 30%, #8aff8a, #00c000);
+
+}
+
+.led-azul{
+
+background:radial-gradient(circle at 30% 30%, #8ab6ff, #003cff);
+
+}
+
+.led-naranja{
+
+background:radial-gradient(circle at 30% 30%, #ffc68a, #ff7b00);
+
+}
+
+
+/* CAJA MONITOREO */
 
 .sensor-derecha{
 
 background:#d6cfd9;
-
 color:black;
 
 padding:50px;
