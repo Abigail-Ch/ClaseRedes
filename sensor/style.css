@@ -1,133 +1,167 @@
-/* FUENTES */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Pacifico&display=swap');
+/* fondo con degradado */
 
 body{
+
 margin:0;
-font-family:'Poppins', sans-serif;
-
-/* DEGRADADO COMO EL DE TU IMAGEN */
-background:linear-gradient(
-180deg,
-#cfc5d1 0%,
-#9c7f9c 50%,
-#6f3e6f 100%
-);
-
+font-family:Arial;
 color:white;
+
+background:linear-gradient(#bfb6c7,#6e3c6e);
+
+text-align:center;
+
 }
 
 
-/* TITULO PRINCIPAL */
+/* LOGIN */
+
+.login-container{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.login-box{
+
+background:white;
+color:black;
+
+padding:40px;
+
+border-radius:20px;
+
+width:300px;
+
+}
+
+
+.login-box input{
+
+width:100%;
+padding:10px;
+margin:10px 0;
+
+border-radius:10px;
+border:none;
+
+background:#eee;
+
+}
+
+.login-box button{
+
+width:100%;
+padding:10px;
+
+border:none;
+
+background:#7a4b7a;
+
+color:white;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+/* icono */
+
+.avatar{
+
+width:90px;
+height:90px;
+
+background:#7a4b7a;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+margin:auto;
+margin-bottom:20px;
+
+}
+
+.avatar svg{
+
+width:50px;
+fill:white;
+
+}
+
+
+/* TITULO */
 
 .titulo{
-text-align:center;
-margin-top:40px;
-font-size:35px;
-letter-spacing:3px;
+
+margin-top:50px;
+
+font-size:40px;
+
 }
 
 .titulo span{
 
-/* letra tipo script como tu imagen */
-font-family:'Pacifico', cursive;
+font-size:60px;
 
-font-size:70px;
-color:black;
+font-family:cursive;
+
 }
 
 
-/* TITULO DEL SENSOR */
+/* SECCION SENSOR */
+
+.sensor{
+
+margin-top:100px;
+
+}
+
 
 .sensor-titulo{
 
-background:#d8ccd7;
+background:#d6cfd9;
+
 color:black;
 
 display:inline-block;
 
-padding:14px 40px;
+padding:10px 40px;
 
-border-radius:40px;
-
-margin-top:60px;
-
-font-weight:500;
+border-radius:30px;
 
 }
 
 
-/* CONTENEDOR DE SENSOR */
+/* CONTENIDO SENSOR */
 
 .sensor-contenido{
 
 display:flex;
 
-justify-content:space-around;
+justify-content:center;
 
 align-items:center;
+
+gap:200px;
 
 margin-top:50px;
 
 }
 
 
-/* ICONOS */
+/* ICONO */
 
 .icono{
 
 width:150px;
-
-margin-bottom:20px;
-
-}
-
-
-/* SLIDER */
-
-input[type=range]{
-
-width:260px;
-
-}
-
-
-/* TEXTO DE VALOR */
-
-.valor{
-
-font-size:24px;
-
-margin-top:15px;
-
-}
-
-
-/* TARJETA DEL LED */
-
-.sensor-derecha{
-
-background:#d8ccd7;
-
-padding:50px;
-
-border-radius:35px;
-
-width:380px;
-
-color:#7a5a7b;
-
-text-align:center;
-
-}
-
-
-/* TITULO TARJETA */
-
-.sensor-derecha h3{
-
-font-size:32px;
-
-margin-bottom:30px;
 
 }
 
@@ -136,9 +170,8 @@ margin-bottom:30px;
 
 .led{
 
-width:70px;
-
-height:70px;
+width:80px;
+height:80px;
 
 border-radius:50%;
 
@@ -149,105 +182,19 @@ margin:auto;
 }
 
 
-/* LOGIN */
+/* CAJA ESTADO */
 
-.login-container{
+.sensor-derecha{
 
-display:flex;
+background:#d6cfd9;
 
-justify-content:center;
+color:black;
 
-align-items:center;
+padding:50px;
 
-height:100vh;
+border-radius:30px;
 
-background:#92759a;
-
-}
-
-
-.login-box{
-
-background:#eeeeee;
-
-width:320px;
-
-padding:90px 35px 35px 35px;
-
-position:relative;
+width:300px;
 
 }
 
-
-/* ICONO LOGIN */
-
-.avatar{
-
-width:115px;
-
-height:115px;
-
-background:#4a3a4f;
-
-border-radius:50%;
-
-position:absolute;
-
-top:-58px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-
-.avatar svg{
-
-width:65px;
-
-height:65px;
-
-fill:white;
-
-}
-
-
-/* INPUTS */
-
-.login-box input,
-
-.login-box button{
-
-width:100%;
-
-height:45px;
-
-border:none;
-
-border-radius:25px;
-
-background:#cbb8cc;
-
-margin-top:10px;
-
-padding-left:15px;
-
-}
-
-
-/* BOTON */
-
-.login-box button{
-
-cursor:pointer;
-
-font-weight:bold;
-
-}
