@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
 <meta charset="UTF-8">
 <title>Sistema de Monitoreo</title>
 
@@ -10,6 +11,7 @@
 </head>
 
 <body>
+
 
 <!-- LOGIN -->
 
@@ -41,11 +43,13 @@
 </div>
 
 
+
 <!-- SISTEMA -->
 
 <div id="sistema" style="display:none;">
 
 <h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
+
 
 
 <!-- SENSOR HUMEDAD -->
@@ -58,7 +62,7 @@
 
 <div class="sensor-izquierda">
 
-<img src="humedad.png" class="icono">
+<img src="img/humedad.png" class="icono">
 
 <input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
 
@@ -71,13 +75,14 @@
 
 <h3>Estado de monitoreo</h3>
 
-<div class="led led-rojo" id="ledH"></div>
+<img id="ledH" class="led" src="img/led_rojo.png">
 
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- SENSOR TEMPERATURA -->
@@ -90,7 +95,7 @@
 
 <div class="sensor-izquierda">
 
-<img src="temperatura.png" class="icono">
+<img src="img/temperatura.png" class="icono">
 
 <input type="range" id="temp" min="0" max="50" oninput="actualizar()">
 
@@ -103,7 +108,7 @@
 
 <h3>Estado de monitoreo</h3>
 
-<div class="led led-azul" id="ledT"></div>
+<img id="ledT" class="led" src="img/led_azul.png">
 
 </div>
 
@@ -112,6 +117,7 @@
 </section>
 
 </div>
+
 
 <script src="script.js"></script>
 
