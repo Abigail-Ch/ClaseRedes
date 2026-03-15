@@ -1,3 +1,5 @@
+// LOGIN
+
 function login(){
 
 let user="admin";
@@ -19,28 +21,46 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 
 }
 
+
+
+// ACTUALIZAR SENSORES
+
 function actualizar(){
 
-let humedad = document.getElementById("humedad").value;
-let temp = document.getElementById("temp").value;
+let humedad=document.getElementById("humedad").value;
+let temp=document.getElementById("temp").value;
 
-document.getElementById("valorH").innerHTML = humedad + "%";
-document.getElementById("valorT").innerHTML = temp + "°C";
+document.getElementById("valorH").innerHTML=humedad+"%";
+document.getElementById("valorT").innerHTML=temp+"°C";
 
-let ledH = document.getElementById("ledH");
-let ledT = document.getElementById("ledT");
 
-if(humedad <= 40){
+let ledH=document.getElementById("ledH");
+let ledT=document.getElementById("ledT");
+
+
+// humedad
+
+if(humedad<=30){
+
 ledH.style.background="red";
+
 }else{
+
 ledH.style.background="green";
+
 }
 
-if(temp <= 25){
+
+// temperatura
+
+if(temp<=25){
+
 ledT.style.background="blue";
+
 }else{
+
 ledT.style.background="orange";
-}
 
 }
 
+}
