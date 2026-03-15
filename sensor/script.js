@@ -34,30 +34,31 @@ let ledH=document.getElementById("ledH");
 let ledT=document.getElementById("ledT");
 
 
-// HUMEDAD
 
-if(humedad<=30){
+/* HUMEDAD */
 
-ledH.className="led led-rojo";
+if(humedad <= 30){
 
-}else{
-
-ledH.className="led led-verde";
-
-}
-
-
-// TEMPERATURA
-
-if(temp<=25){
-
-ledT.className="led led-azul";
+ledH.src="img/led_rojo.png";
 
 }else{
 
-ledT.className="led led-naranja";
+ledH.src="img/led_verde.png";
+
+}
+
+
+
+/* TEMPERATURA */
+
+if(temp <= 25){
+
+ledT.src="img/led_azul.png";
+
+}else{
+
+ledT.src="img/led_naranja.png";
 
 }
 
 }
-
