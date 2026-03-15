@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
 
@@ -8,98 +8,120 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
-<div class="titulo">
-ESTADO DE LOS <span>Sensores</span>
+
+<!-- LOGIN -->
+
+<div id="login" class="login-container">
+
+<div class="login-box">
+
+<div class="avatar">
+
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="8" r="4"/>
+<path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+</svg>
+
 </div>
+
+<label>Usuario</label>
+<input type="text" id="usuario">
+
+<label>Contraseña</label>
+<input type="password" id="password">
+
+<button onclick="login()">LOGIN</button>
+
+<p id="error"></p>
+
+</div>
+
+</div>
+
+
+
+<!-- SISTEMA -->
+
+<div id="sistema" style="display:none;">
+
+<h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
+
 
 
 <!-- SENSOR HUMEDAD -->
 
-<div class="sensor">
+<section class="sensor">
 
-<div class="etiqueta">
-SENSOR DE HÚMEDAD
-</div>
+<h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
 
-<div class="contenedor">
+<div class="sensor-contenido">
 
-<div class="lado-izq">
+<div class="sensor-izquierda">
 
 <img src="img/humedad.png" class="icono">
 
-<input type="range" id="humedad" min="0" max="100" value="40" oninput="actualizar()">
+<input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
 
-<p>Húmedad <span id="valorH">40</span>%</p>
+<p class="valor">Húmedad <span id="valorH">0%</span></p>
 
 </div>
 
 
-<div class="lado-der">
-
-<div class="monitor">
+<div class="sensor-derecha">
 
 <h3>Estado de monitoreo</h3>
 
-<div class="ledBox">
-<img id="ledH" src="img/led_verde.png">
-</div>
+<img id="ledH" class="led" src="img/led_rojo.png">
 
 </div>
 
 </div>
 
-</div>
-
-</div>
+</section>
 
 
 
 <!-- SENSOR PROXIMIDAD -->
 
-<div class="sensor">
+<section class="sensor">
 
-<div class="etiqueta">
-SENSOR DE PROXIMIDAD
-</div>
+<h2 class="sensor-titulo">SENSOR DE PROXIMIDAD</h2>
 
-<div class="contenedor">
+<div class="sensor-contenido">
 
-<div class="lado-izq">
+<div class="sensor-izquierda">
 
 <img src="img/proximidad.png" class="icono">
 
 <input type="number" id="distancia" placeholder="Metros">
 
+<br><br>
+
 <button onclick="actualizarProximidad()">ENTER</button>
 
-<p>Proximidad <span id="valorP">0</span> m</p>
+<p class="valor">Proximidad <span id="valorP">0 m</span></p>
 
 </div>
 
 
-<div class="lado-der">
-
-<div class="monitor">
+<div class="sensor-derecha">
 
 <h3>Estado de monitoreo</h3>
 
-<div class="ledBox">
-<img id="ledP" src="img/led_rojo.png">
-</div>
+<img id="ledP" class="led" src="img/led_rojo.png">
 
 </div>
 
 </div>
 
-</div>
+</section>
 
 </div>
+
 
 <script src="script.js"></script>
 
