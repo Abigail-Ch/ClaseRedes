@@ -1,16 +1,16 @@
 body{
 
 margin:0;
-font-family: 'Poppins', sans-serif;
+font-family:Poppins;
 color:white;
 
-/* degradado parecido al de tu imagen */
+/* degradado */
 
 background: linear-gradient(
 180deg,
-#cfc3d4 0%,
-#9b7f9e 50%,
-#6a3f6f 100%
+#cfc4d4 0%,
+#9a7c9e 50%,
+#6a3d6f 100%
 );
 
 }
@@ -21,73 +21,75 @@ background: linear-gradient(
 .titulo{
 
 text-align:center;
-margin-top:40px;
-margin-bottom:80px;
 
-}
+font-size:40px;
 
-.titulo h1{
+margin-top:50px;
 
-font-size:42px;
-font-weight:300;
 letter-spacing:4px;
 
 }
 
 .titulo span{
 
-font-family:'Pacifico', cursive;
-font-size:52px;
+font-family:Pacifico;
+font-size:50px;
 
 }
 
 
-/* SECCION SENSOR */
+/* SENSOR */
 
 .sensor{
 
 width:85%;
+
 margin:auto;
-margin-bottom:150px;
+
+margin-top:80px;
+
 text-align:center;
 
 }
 
-.sensor h2{
+
+/* ETIQUETA */
+
+.etiqueta{
 
 display:inline-block;
 
-background:#dcd5df;
+background:#ded6e1;
+
 color:black;
 
-padding:12px 45px;
+padding:12px 50px;
 
 border-radius:30px;
 
-font-size:20px;
+font-size:18px;
 
-margin-bottom:50px;
+margin-bottom:40px;
 
 }
 
 
-/* CONTENEDOR PRINCIPAL */
+/* CONTENEDOR */
 
-.contenido{
+.contenedor{
 
 display:flex;
 
-justify-content:space-around;
+justify-content:space-between;
 
 align-items:center;
 
 }
 
 
-
 /* LADO IZQUIERDO */
 
-.sensor-izquierda{
+.lado-izq{
 
 display:flex;
 
@@ -99,15 +101,13 @@ gap:20px;
 
 }
 
+
 .icono{
 
-width:130px;
+width:140px;
 
 }
 
-
-
-/* SLIDER */
 
 input[type=range]{
 
@@ -116,62 +116,68 @@ width:260px;
 }
 
 
+.lado-izq p{
 
-/* TEXTO VALOR */
-
-.valor{
-
-font-size:20px;
+font-size:18px;
 
 }
 
 
+/* LADO DERECHO */
 
-/* TARJETA MONITOREO */
+.lado-der{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+/* TARJETA LED */
 
 .monitor{
 
-background:#e6dfea;
-
 width:420px;
-height:300px;
+
+height:280px;
+
+background:#e7e0ea;
 
 border-radius:30px;
 
 display:flex;
+
 flex-direction:column;
 
 align-items:center;
+
 justify-content:center;
 
-padding:20px;
-
-box-sizing:border-box;
+color:black;
 
 }
-
 
 
 /* TEXTO MONITOREO */
 
 .monitor h3{
 
-font-size:28px;   /* más grande */
-margin-bottom:25px;
+font-size:28px;
+
+margin-bottom:20px;
 
 }
-
 
 
 /* LED */
 
 .led{
 
-width:120px;
+width:110px;
+
 height:auto;
-
-/* evita que cambie el tamaño del contenedor */
-
-object-fit:contain;
 
 }
