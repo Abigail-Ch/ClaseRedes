@@ -1,7 +1,7 @@
 function login(){
 
-let user="Abigail";
-let pass="sensores";
+let user="Abi";
+let pass="1234";
 
 let u=document.getElementById("usuario").value;
 let p=document.getElementById("password").value;
@@ -20,6 +20,7 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 }
 
 
+/* HUMEDAD */
 
 function actualizarH(){
 
@@ -42,6 +43,7 @@ led.src="img/led_verde.png";
 }
 
 
+/* PROXIMIDAD */
 
 function actualizarProximidad(){
 
@@ -62,3 +64,4 @@ led.src="img/led_rojo.png";
 }
 
 }
+
