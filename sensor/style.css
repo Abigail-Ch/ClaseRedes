@@ -4,8 +4,6 @@ margin:0;
 font-family:Poppins;
 color:white;
 
-/* degradado */
-
 background: linear-gradient(
 180deg,
 #cfc4d4 0%,
@@ -21,11 +19,8 @@ background: linear-gradient(
 .titulo{
 
 text-align:center;
-
 font-size:42px;
-
 margin-top:50px;
-
 letter-spacing:4px;
 
 }
@@ -33,8 +28,7 @@ letter-spacing:4px;
 .titulo span{
 
 font-family:Pacifico;
-
-font-size:50px;
+font-size:52px;
 
 }
 
@@ -44,11 +38,8 @@ font-size:50px;
 .sensor{
 
 width:85%;
-
 margin:auto;
-
-margin-top:80px;
-
+margin-top:90px;
 text-align:center;
 
 }
@@ -60,8 +51,7 @@ text-align:center;
 
 display:inline-block;
 
-background:#ded6e1;
-
+background:#D6CFD9;
 color:black;
 
 padding:12px 50px;
@@ -80,20 +70,17 @@ margin-bottom:50px;
 .contenedor{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 }
 
 
-/* LADO IZQUIERDO */
+/* IZQUIERDA */
 
 .lado-izq{
 
 display:flex;
-
 flex-direction:column;
 
 align-items:center;
@@ -126,42 +113,35 @@ font-size:18px;
 }
 
 
-/* LADO DERECHO */
+/* DERECHA */
 
 .lado-der{
 
 display:flex;
-
 justify-content:center;
-
 align-items:center;
 
 }
 
 
-/* TARJETA DEL LED */
+/* TARJETA */
 
 .monitor{
 
 width:420px;
-
 height:280px;
 
-background:#e7e0ea;
+background:#D6CFD9;
 
 border-radius:30px;
 
 display:flex;
-
 flex-direction:column;
 
 align-items:center;
-
 justify-content:center;
 
 color:black;
-
-overflow:hidden;
 
 }
 
@@ -171,20 +151,30 @@ overflow:hidden;
 .monitor h3{
 
 font-size:28px;
-
 margin-bottom:20px;
 
 }
 
 
-/* LED */
+/* CAJA LED */
 
-.led{
+.ledBox{
+
+width:120px;
+height:120px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+/* IMAGEN LED */
+
+.ledBox img{
 
 width:90px;
-
 height:auto;
-
-margin-top:10px;
 
 }
