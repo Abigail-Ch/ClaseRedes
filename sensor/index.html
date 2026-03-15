@@ -39,12 +39,11 @@ SENSOR DE HÚMEDAD
 
 </div>
 
-
 <div class="lado-der">
 
 <div class="monitor">
 
-<h3>Estado de monitoreo</h3>
+<h3 class="tituloMonitor">Estado de monitoreo</h3>
 
 <div class="ledBox">
 <img id="ledH" src="img/led_verde.png">
@@ -60,35 +59,36 @@ SENSOR DE HÚMEDAD
 
 
 
-<!-- SENSOR TEMPERATURA -->
+<!-- SENSOR PROXIMIDAD -->
 
 <div class="sensor">
 
 <div class="etiqueta">
-SENSOR DE TEMPERATURA
+SENSOR DE PROXIMIDAD
 </div>
 
 <div class="contenedor">
 
 <div class="lado-izq">
 
-<img src="img/temperatura.png" class="icono">
+<img src="img/proximidad.png" class="icono">
 
-<input type="range" id="temp" min="0" max="50" value="20" oninput="actualizar()">
+<input type="number" id="distancia" placeholder="Metros">
 
-<p>Temperatura <span id="valorT">20</span>°C</p>
+<button onclick="actualizarProximidad()">ENTER</button>
+
+<p>Proximidad <span id="valorP">0</span> m</p>
 
 </div>
-
 
 <div class="lado-der">
 
 <div class="monitor">
 
-<h3>Estado de monitoreo</h3>
+<h3 class="tituloMonitor">Estado de monitoreo</h3>
 
 <div class="ledBox">
-<img id="ledT" src="img/led_azul.png">
+<img id="ledP" src="img/led_rojo.png">
 </div>
 
 </div>
