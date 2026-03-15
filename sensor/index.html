@@ -3,84 +3,108 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Sistema de Monitoreo</title>
-
-<!-- Se conecta el archivo de estilos -->
+<title>Sistema de Sensores</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<!-- CONTENEDOR DEL LOGIN -->
+<!-- LOGIN -->
 <div id="login" class="login-container">
 
-<!-- Caja donde está el formulario -->
 <div class="login-box">
 
-<!-- Icono de usuario -->
 <div class="avatar">
-
-<!-- Icono vectorial de usuario -->
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
 </svg>
-
 </div>
 
-<!-- Campo para escribir el usuario -->
 <label>Usuario</label>
 <input type="text" id="usuario">
 
-<!-- Campo para escribir la contraseña -->
 <label>Contraseña</label>
 <input type="password" id="password">
 
-<!-- Botón para iniciar sesión -->
 <button onclick="login()">LOGIN</button>
 
-<!-- Aquí se mostrará un mensaje de error -->
 <p id="error"></p>
 
 </div>
-
 </div>
 
 
-<!-- INTERFAZ PRINCIPAL DEL SISTEMA -->
+<!-- SISTEMA -->
 <div id="sistema" style="display:none;">
 
-<h1>Sistema de monitoreo de sensores</h1>
+<h1 class="titulo">Estado de los <span>Sensores</span></h1>
 
-<!-- SENSOR DE HUMEDAD -->
 
-<h3>Humedad</h3>
+<!-- SECCION HUMEDAD -->
 
-<!-- Slider para simular humedad -->
-<input type="range" id="humedad" min="0" max="20" oninput="actualizar()">
+<section class="sensor">
 
-<!-- Texto donde se mostrará el valor -->
-<p id="valorH"></p>
+<h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
 
-<!-- LED que indica estado -->
+<div class="sensor-contenido">
+
+<div class="sensor-izquierda">
+
+<img src="humedad.png" class="icono">
+
+<input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
+
+<p class="valor">Humedad <span id="valorH">0%</span></p>
+
+</div>
+
+<div class="sensor-derecha">
+
+<h3>Estado de monitoreo</h3>
+
 <div class="led" id="ledH"></div>
 
+</div>
 
-<!-- SENSOR DE TEMPERATURA -->
+</div>
 
-<h3>Temperatura</h3>
+</section>
 
-<!-- Slider para simular temperatura -->
+
+
+<!-- SECCION TEMPERATURA -->
+
+<section class="sensor">
+
+<h2 class="sensor-titulo">SENSOR DE TEMPERATURA</h2>
+
+<div class="sensor-contenido">
+
+<div class="sensor-izquierda">
+
+<img src="temperatura.png" class="icono">
+
 <input type="range" id="temp" min="0" max="50" oninput="actualizar()">
 
-<p id="valorT"></p>
+<p class="valor">Temperatura <span id="valorT">0°C</span></p>
+
+</div>
+
+<div class="sensor-derecha">
+
+<h3>Estado de monitoreo</h3>
 
 <div class="led" id="ledT"></div>
 
 </div>
 
-<!-- Se conecta el archivo JavaScript -->
+</div>
+
+</section>
+
+</div>
+
 <script src="script.js"></script>
 
 </body>
