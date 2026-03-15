@@ -10,7 +10,7 @@ let ledH = document.getElementById("ledH");
 let ledT = document.getElementById("ledT");
 
 
-/* humedad */
+/* HUMEDAD */
 
 if(humedad <= 30){
 
@@ -23,7 +23,7 @@ ledH.src="img/led_verde.png";
 }
 
 
-/* temperatura */
+/* TEMPERATURA */
 
 if(temp <= 25){
 
