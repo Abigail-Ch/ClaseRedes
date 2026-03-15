@@ -56,12 +56,13 @@ background:#7a4b7a;
 color:white;
 
 border-radius:10px;
+
 cursor:pointer;
 
 }
 
 
-/* ICONO */
+/* ICONO USUARIO */
 
 .avatar{
 
@@ -130,7 +131,6 @@ border-radius:30px;
 .sensor-contenido{
 
 display:flex;
-
 justify-content:center;
 align-items:center;
 
@@ -141,7 +141,7 @@ margin-top:50px;
 }
 
 
-/* ICONO */
+/* ICONOS */
 
 .icono{
 
@@ -150,48 +150,11 @@ width:150px;
 }
 
 
-/* LED REALISTA */
+/* LED IMAGEN */
 
 .led{
 
-width:80px;
-height:80px;
-
-border-radius:50%;
-
-margin:auto;
-
-box-shadow:
-0 0 20px rgba(0,0,0,0.5),
-inset 0 4px 10px rgba(255,255,255,0.8),
-inset 0 -10px 20px rgba(0,0,0,0.6);
-
-}
-
-
-/* COLORES LED */
-
-.led-rojo{
-
-background:radial-gradient(circle at 30% 30%, #ff8a8a, #ff0000);
-
-}
-
-.led-verde{
-
-background:radial-gradient(circle at 30% 30%, #8aff8a, #00c000);
-
-}
-
-.led-azul{
-
-background:radial-gradient(circle at 30% 30%, #8ab6ff, #003cff);
-
-}
-
-.led-naranja{
-
-background:radial-gradient(circle at 30% 30%, #ffc68a, #ff7b00);
+width:100px;
 
 }
 
