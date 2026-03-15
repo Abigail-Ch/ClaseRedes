@@ -20,7 +20,6 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 }
 
 
-
 /* HUMEDAD */
 
 function actualizar(){
@@ -42,7 +41,6 @@ ledH.src="img/led_verde.png";
 }
 
 }
-
 
 
 /* PROXIMIDAD */
