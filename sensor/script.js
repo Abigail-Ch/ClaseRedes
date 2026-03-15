@@ -20,14 +20,16 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 }
 
 
+
+/* HUMEDAD */
+
 function actualizar(){
 
-let humedad = document.getElementById("humedad").value;
+let humedad=document.getElementById("humedad").value;
 
-document.getElementById("valorH").innerHTML = humedad;
+document.getElementById("valorH").innerHTML=humedad+"%";
 
-let ledH = document.getElementById("ledH");
-
+let ledH=document.getElementById("ledH");
 
 if(humedad <= 30){
 
@@ -42,16 +44,16 @@ ledH.src="img/led_verde.png";
 }
 
 
-/* SENSOR DE PROXIMIDAD */
+
+/* PROXIMIDAD */
 
 function actualizarProximidad(){
 
-let distancia = document.getElementById("distancia").value;
+let distancia=document.getElementById("distancia").value;
 
-document.getElementById("valorP").innerHTML = distancia;
+document.getElementById("valorP").innerHTML=distancia+" m";
 
-let ledP = document.getElementById("ledP");
-
+let ledP=document.getElementById("ledP");
 
 if(distancia <= 2){
 
@@ -64,4 +66,3 @@ ledP.src="img/led_rojo.png";
 }
 
 }
-
