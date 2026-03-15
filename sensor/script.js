@@ -1,5 +1,3 @@
-// LOGIN
-
 function login(){
 
 let user="admin";
@@ -23,8 +21,6 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 
 
 
-// ACTUALIZAR SENSORES
-
 function actualizar(){
 
 let humedad=document.getElementById("humedad").value;
@@ -38,29 +34,30 @@ let ledH=document.getElementById("ledH");
 let ledT=document.getElementById("ledT");
 
 
-// humedad
+// HUMEDAD
 
 if(humedad<=30){
 
-ledH.style.background="red";
+ledH.className="led led-rojo";
 
 }else{
 
-ledH.style.background="green";
+ledH.className="led led-verde";
 
 }
 
 
-// temperatura
+// TEMPERATURA
 
 if(temp<=25){
 
-ledT.style.background="blue";
+ledT.className="led led-azul";
 
 }else{
 
-ledT.style.background="orange";
+ledT.className="led led-naranja";
 
 }
 
 }
+
