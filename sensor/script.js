@@ -3,33 +3,36 @@ function actualizar(){
 let humedad = document.getElementById("humedad").value;
 let temp = document.getElementById("temp").value;
 
-/* mostrar valores */
-
 document.getElementById("valorH").innerHTML = humedad;
 document.getElementById("valorT").innerHTML = temp;
-
-/* leds */
 
 let ledH = document.getElementById("ledH");
 let ledT = document.getElementById("ledT");
 
+
 /* humedad */
 
 if(humedad <= 30){
+
 ledH.src="img/led_rojo.png";
-}
-else{
+
+}else{
+
 ledH.src="img/led_verde.png";
+
 }
+
 
 /* temperatura */
 
 if(temp <= 25){
+
 ledT.src="img/led_azul.png";
-}
-else{
+
+}else{
+
 ledT.src="img/led_naranja.png";
-}
 
 }
 
+}
