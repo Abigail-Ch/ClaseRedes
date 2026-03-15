@@ -85,7 +85,7 @@ flex-direction:column;
 
 align-items:center;
 
-gap:25px;
+gap:20px;
 
 width:300px;
 
@@ -99,6 +99,8 @@ width:150px;
 }
 
 
+/* SLIDER */
+
 input[type=range]{
 
 width:260px;
@@ -106,9 +108,34 @@ width:260px;
 }
 
 
-.lado-izq p{
+/* INPUT PROXIMIDAD */
 
-font-size:18px;
+input[type=number]{
+
+width:200px;
+padding:10px;
+
+border-radius:8px;
+border:none;
+
+font-size:16px;
+
+}
+
+
+/* BOTON */
+
+button{
+
+padding:10px 20px;
+
+border:none;
+border-radius:10px;
+
+background:#6a3d6f;
+color:white;
+
+cursor:pointer;
 
 }
 
@@ -139,19 +166,33 @@ display:flex;
 flex-direction:column;
 
 align-items:center;
-justify-content:center;
+justify-content:flex-start;
+
+padding-top:20px;
 
 color:black;
 
 }
 
 
-/* TEXTO */
+/* TITULO MONITOREO */
 
-.monitor h3{
+.tituloMonitor{
 
 font-size:28px;
-margin-bottom:20px;
+
+margin-bottom:10px;
+
+/* degradado en el texto */
+
+background: linear-gradient(
+90deg,
+#6a3d6f,
+#9a7c9e
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
 }
 
@@ -167,10 +208,12 @@ display:flex;
 align-items:center;
 justify-content:center;
 
+margin-top:20px;
+
 }
 
 
-/* IMAGEN LED */
+/* LED */
 
 .ledBox img{
 
