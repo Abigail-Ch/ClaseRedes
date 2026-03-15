@@ -1,9 +1,11 @@
+/* Estilo general de la página */
 body{
 font-family:Arial;
 background:#92759a;
 margin:0;
 }
 
+/* Contenedor que centra el login en la pantalla */
 .login-container{
 display:flex;
 justify-content:center;
@@ -11,20 +13,22 @@ align-items:center;
 height:100vh;
 }
 
+/* Caja donde está el formulario */
 .login-box{
 background:#eeeeee;
 width:320px;
-padding:80px 35px 35px 35px;
+padding:90px 35px 35px 35px;
 position:relative;
 }
 
+/* Círculo del icono de usuario */
 .avatar{
-width:100px;
-height:100px;
+width:115px;
+height:115px;
 background:#4a3a4f;
 border-radius:50%;
 position:absolute;
-top:-50px;
+top:-58px;
 left:50%;
 transform:translateX(-50%);
 display:flex;
@@ -32,18 +36,21 @@ justify-content:center;
 align-items:center;
 }
 
+/* Tamaño del icono de usuario */
 .avatar svg{
-width:55px;
-height:55px;
+width:65px;
+height:65px;
 fill:white;
 }
 
+/* Estilo del texto de los labels */
 .login-box label{
 display:block;
 margin-top:12px;
 font-size:14px;
 }
 
+/* Estilo de los inputs y del botón */
 .login-box input,
 .login-box button{
 width:100%;
@@ -57,6 +64,7 @@ padding-left:15px;
 font-size:14px;
 }
 
+/* Ajustes específicos del botón */
 .login-box button{
 margin-top:20px;
 font-weight:bold;
@@ -64,6 +72,7 @@ cursor:pointer;
 padding-left:0;
 }
 
+/* Estilo del LED indicador */
 .led{
 width:40px;
 height:40px;
