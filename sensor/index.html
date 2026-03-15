@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
+
+<meta charset="UTF-8">
 <title>Sistema de Monitoreo</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<!-- LOGIN -->
-
-<div id="login">
-
-<h2>Inicio de sesión</h2>
-
-<input type="text" id="usuario" placeholder="Usuario">
-<input type="password" id="password" placeholder="Contraseña">
-
-<button onclick="login()">Entrar</button>
-
-<p id="error"></p>
-
+<div class="titulo">
+ESTADO DE LOS <span>Sensores</span>
 </div>
 
 
-<!-- SISTEMA -->
-
-<div id="sistema" style="display:none;">
-
-<h1 class="titulo">Estado de los Sensores</h1>
-
-
-<!-- HUMEDAD -->
+<!-- SENSOR HUMEDAD -->
 
 <div class="sensor">
 
-<h3 class="etiqueta">Sensor de Humedad</h3>
+<div class="etiqueta">
+SENSOR DE HÚMEDAD
+</div>
 
 <div class="contenedor">
 
@@ -42,18 +33,21 @@
 
 <img src="img/humedad.png" class="icono">
 
-<input type="range" id="humedad" min="0" max="100" oninput="actualizarH()">
+<input type="range" id="humedad" min="0" max="100" value="40" oninput="actualizar()">
 
-<p>Humedad <span id="valorH">0</span>%</p>
+<p>Húmedad <span id="valorH">40</span>%</p>
 
 </div>
+
+
+<div class="lado-der">
 
 <div class="monitor">
 
-<h3 class="estado">Estado de monitoreo</h3>
+<h3>Estado de monitoreo</h3>
 
 <div class="ledBox">
-<img id="ledH" src="img/led_rojo.png">
+<img id="ledH" src="img/led_verde.png">
 </div>
 
 </div>
@@ -62,12 +56,17 @@
 
 </div>
 
+</div>
 
-<!-- PROXIMIDAD -->
+
+
+<!-- SENSOR PROXIMIDAD -->
 
 <div class="sensor">
 
-<h3 class="etiqueta">Sensor de Proximidad</h3>
+<div class="etiqueta">
+SENSOR DE PROXIMIDAD
+</div>
 
 <div class="contenedor">
 
@@ -83,9 +82,12 @@
 
 </div>
 
+
+<div class="lado-der">
+
 <div class="monitor">
 
-<h3 class="estado">Estado de monitoreo</h3>
+<h3>Estado de monitoreo</h3>
 
 <div class="ledBox">
 <img id="ledP" src="img/led_rojo.png">
