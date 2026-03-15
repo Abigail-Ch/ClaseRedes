@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Sistema de Sensores</title>
+<title>Sistema de Monitoreo</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -38,11 +38,9 @@
 <!-- SISTEMA -->
 <div id="sistema" style="display:none;">
 
-<h1 class="titulo">Estado de los <span>Sensores</span></h1>
+<h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
 
-
-<!-- SECCION HUMEDAD -->
-
+<!-- SENSOR HUMEDAD -->
 <section class="sensor">
 
 <h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
@@ -55,7 +53,7 @@
 
 <input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
 
-<p class="valor">Humedad <span id="valorH">0%</span></p>
+<p class="valor">Húmedad <span id="valorH">0%</span></p>
 
 </div>
 
@@ -72,9 +70,7 @@
 </section>
 
 
-
-<!-- SECCION TEMPERATURA -->
-
+<!-- SENSOR TEMPERATURA -->
 <section class="sensor">
 
 <h2 class="sensor-titulo">SENSOR DE TEMPERATURA</h2>
