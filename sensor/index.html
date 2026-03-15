@@ -4,21 +4,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Sistema de Monitoreo</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <!-- LOGIN -->
+
 <div id="login" class="login-container">
 
 <div class="login-box">
 
 <div class="avatar">
+
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
 </svg>
+
 </div>
 
 <label>Usuario</label>
@@ -32,15 +37,19 @@
 <p id="error"></p>
 
 </div>
+
 </div>
 
 
 <!-- SISTEMA -->
+
 <div id="sistema" style="display:none;">
 
 <h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
 
+
 <!-- SENSOR HUMEDAD -->
+
 <section class="sensor">
 
 <h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
@@ -57,11 +66,12 @@
 
 </div>
 
+
 <div class="sensor-derecha">
 
 <h3>Estado de monitoreo</h3>
 
-<div class="led" id="ledH"></div>
+<div class="led led-rojo" id="ledH"></div>
 
 </div>
 
@@ -71,6 +81,7 @@
 
 
 <!-- SENSOR TEMPERATURA -->
+
 <section class="sensor">
 
 <h2 class="sensor-titulo">SENSOR DE TEMPERATURA</h2>
@@ -87,11 +98,12 @@
 
 </div>
 
+
 <div class="sensor-derecha">
 
 <h3>Estado de monitoreo</h3>
 
-<div class="led" id="ledT"></div>
+<div class="led led-azul" id="ledT"></div>
 
 </div>
 
@@ -105,3 +117,4 @@
 
 </body>
 </html>
+
