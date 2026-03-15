@@ -1,6 +1,6 @@
 function login(){
 
-let user="Abi";
+let user="admin";
 let pass="1234";
 
 let u=document.getElementById("usuario").value;
@@ -20,46 +20,46 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 }
 
 
-/* HUMEDAD */
+function actualizar(){
 
-function actualizarH(){
+let humedad = document.getElementById("humedad").value;
 
-let humedad=document.getElementById("humedad").value;
+document.getElementById("valorH").innerHTML = humedad;
 
-document.getElementById("valorH").innerHTML=humedad;
+let ledH = document.getElementById("ledH");
 
-let led=document.getElementById("ledH");
 
-if(humedad<=30){
+if(humedad <= 30){
 
-led.src="img/led_rojo.png";
+ledH.src="img/led_rojo.png";
 
 }else{
 
-led.src="img/led_verde.png";
+ledH.src="img/led_verde.png";
 
 }
 
 }
 
 
-/* PROXIMIDAD */
+/* SENSOR DE PROXIMIDAD */
 
 function actualizarProximidad(){
 
-let distancia=document.getElementById("distancia").value;
+let distancia = document.getElementById("distancia").value;
 
-document.getElementById("valorP").innerHTML=distancia;
+document.getElementById("valorP").innerHTML = distancia;
 
-let led=document.getElementById("ledP");
+let ledP = document.getElementById("ledP");
 
-if(distancia<=2){
 
-led.src="img/led_verde.png";
+if(distancia <= 2){
+
+ledP.src="img/led_verde.png";
 
 }else{
 
-led.src="img/led_rojo.png";
+ledP.src="img/led_rojo.png";
 
 }
 
