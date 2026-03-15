@@ -141,6 +141,18 @@ margin-top:50px;
 }
 
 
+/* LADO IZQUIERDO */
+
+.sensor-izquierda{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:20px;
+
+}
+
+
 /* ICONOS */
 
 .icono{
@@ -150,11 +162,20 @@ width:150px;
 }
 
 
-/* LED IMAGEN */
+/* VALOR HUMEDAD */
+
+.valor{
+
+font-size:18px;
+
+}
+
+
+/* LED */
 
 .led{
 
-width:100px;
+width:90px;
 
 }
 
@@ -166,10 +187,33 @@ width:100px;
 background:#d6cfd9;
 color:black;
 
-padding:50px;
+padding:40px;
 
 border-radius:30px;
 
-width:300px;
+width:320px;
+height:220px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+}
+
+
+/* TEXTO ESTADO */
+
+.sensor-derecha h3{
+
+margin-bottom:20px;
+
+font-size:26px;
+
+/* DEGRADADO */
+
+background:linear-gradient(90deg,#6e3c6e,#a06fa0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
 }
