@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Sistema de Monitoreo</title>
+
+<!-- Se conecta el archivo de estilos -->
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+<!-- CONTENEDOR DEL LOGIN -->
 <div id="login" class="login-container">
 
+<!-- Caja donde está el formulario -->
 <div class="login-box">
 
+<!-- Icono de usuario -->
 <div class="avatar">
+
+<!-- Icono vectorial de usuario -->
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
 </svg>
+
 </div>
 
+<!-- Campo para escribir el usuario -->
 <label>Usuario</label>
 <input type="text" id="usuario">
 
+<!-- Campo para escribir la contraseña -->
 <label>Contraseña</label>
 <input type="password" id="password">
 
+<!-- Botón para iniciar sesión -->
 <button onclick="login()">LOGIN</button>
 
+<!-- Aquí se mostrará un mensaje de error -->
 <p id="error"></p>
 
 </div>
@@ -34,22 +48,39 @@
 </div>
 
 
+<!-- INTERFAZ PRINCIPAL DEL SISTEMA -->
 <div id="sistema" style="display:none;">
 
 <h1>Sistema de monitoreo de sensores</h1>
 
+<!-- SENSOR DE HUMEDAD -->
+
 <h3>Humedad</h3>
+
+<!-- Slider para simular humedad -->
 <input type="range" id="humedad" min="0" max="20" oninput="actualizar()">
+
+<!-- Texto donde se mostrará el valor -->
 <p id="valorH"></p>
+
+<!-- LED que indica estado -->
 <div class="led" id="ledH"></div>
 
+
+<!-- SENSOR DE TEMPERATURA -->
+
 <h3>Temperatura</h3>
+
+<!-- Slider para simular temperatura -->
 <input type="range" id="temp" min="0" max="50" oninput="actualizar()">
+
 <p id="valorT"></p>
+
 <div class="led" id="ledT"></div>
 
 </div>
 
+<!-- Se conecta el archivo JavaScript -->
 <script src="script.js"></script>
 
 </body>
