@@ -1,14 +1,10 @@
 function actualizar(){
 
 let humedad = document.getElementById("humedad").value;
-let temp = document.getElementById("temp").value;
 
 document.getElementById("valorH").innerHTML = humedad;
-document.getElementById("valorT").innerHTML = temp;
 
 let ledH = document.getElementById("ledH");
-let ledT = document.getElementById("ledT");
-
 
 if(humedad <= 30){
 
@@ -20,14 +16,24 @@ ledH.src="img/led_verde.png";
 
 }
 
+}
 
-if(temp <= 25){
 
-ledT.src="img/led_azul.png";
+function actualizarProximidad(){
+
+let distancia = document.getElementById("distancia").value;
+
+document.getElementById("valorP").innerHTML = distancia;
+
+let ledP = document.getElementById("ledP");
+
+if(distancia <= 2){
+
+ledP.src="img/led_verde.png";
 
 }else{
 
-ledT.src="img/led_naranja.png";
+ledP.src="img/led_rojo.png";
 
 }
 
