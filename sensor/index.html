@@ -1,110 +1,78 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-
 <meta charset="UTF-8">
-<title>Sistema de Monitoreo</title>
+<title>Sistema de monitoreo</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- tipografia similar a la del diseño -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
+<div id="sistema">
 
-<!-- LOGIN -->
-
-<div id="login" class="login-container">
-
-<div class="login-box">
-
-<div class="avatar">
-
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="8" r="4"/>
-<path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
-</svg>
-
+<!-- TITULO -->
+<div class="titulo">
+<h1>ESTADO DE LOS <span>Sensores</span></h1>
 </div>
 
-<label>Usuario</label>
-<input type="text" id="usuario">
+<!-- ================= HUMEDAD ================= -->
 
-<label>Contraseña</label>
-<input type="password" id="password">
+<div class="sensor">
 
-<button onclick="login()">LOGIN</button>
+<h2>SENSOR DE HÚMEDAD</h2>
 
-<p id="error"></p>
-
-</div>
-
-</div>
-
-
-
-<!-- SISTEMA -->
-
-<div id="sistema" style="display:none;">
-
-<h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
-
-
-
-<!-- SENSOR HUMEDAD -->
-
-<section class="sensor">
-
-<h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
-
-<div class="sensor-contenido">
+<div class="contenido">
 
 <div class="sensor-izquierda">
 
 <img src="img/humedad.png" class="icono">
 
-<input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
+<input type="range" id="humedad" min="0" max="100" value="40" oninput="actualizar()">
 
-<p class="valor">Húmedad <span id="valorH">0%</span></p>
+<div class="valor">
+Húmedad <span id="valorH">40</span>%
+</div>
 
 </div>
 
-
-<div class="sensor-derecha">
+<div class="monitor">
 
 <h3>Estado de monitoreo</h3>
 
-<img id="ledH" class="led" src="img/led_rojo.png">
+<img id="ledH" class="led" src="img/led_verde.png">
 
 </div>
 
 </div>
 
-</section>
+</div>
 
+<!-- ================= TEMPERATURA ================= -->
 
+<div class="sensor">
 
-<!-- SENSOR TEMPERATURA -->
+<h2>SENSOR DE TEMPERATURA</h2>
 
-<section class="sensor">
-
-<h2 class="sensor-titulo">SENSOR DE TEMPERATURA</h2>
-
-<div class="sensor-contenido">
+<div class="contenido">
 
 <div class="sensor-izquierda">
 
 <img src="img/temperatura.png" class="icono">
 
-<input type="range" id="temp" min="0" max="50" oninput="actualizar()">
+<input type="range" id="temp" min="0" max="50" value="20" oninput="actualizar()">
 
-<p class="valor">Temperatura <span id="valorT">0°C</span></p>
+<div class="valor">
+Temperatura <span id="valorT">20</span>°C
+</div>
 
 </div>
 
-
-<div class="sensor-derecha">
+<div class="monitor">
 
 <h3>Estado de monitoreo</h3>
 
@@ -114,13 +82,11 @@
 
 </div>
 
-</section>
-
 </div>
 
+</div>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-
