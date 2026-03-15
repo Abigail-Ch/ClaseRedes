@@ -1,180 +1,90 @@
 body{
-
-margin:0;
-font-family:Poppins;
-color:white;
-
-background: linear-gradient(
-180deg,
-#cfc4d4,
-#9a7c9e,
-#6a3d6f
-);
-
-}
-
-
-/* LOGIN */
-
-#login{
-
-margin-top:120px;
+font-family:Arial;
 text-align:center;
-
-}
-
-#login input{
-
-display:block;
-margin:10px auto;
-padding:10px;
-width:200px;
-
-}
-
-#login button{
-
-padding:10px 20px;
-
+background:#111;
+color:white;
 }
 
 
 /* TITULO */
 
 .titulo{
-
-text-align:center;
-font-size:42px;
-margin-top:50px;
-
-}
-
-.titulo span{
-
-font-family:Pacifico;
-font-size:52px;
-
+margin-top:30px;
 }
 
 
 /* SENSOR */
 
 .sensor{
-
-width:85%;
-margin:auto;
-margin-top:90px;
-text-align:center;
-
+margin-top:60px;
 }
 
 
 /* ETIQUETA */
 
 .etiqueta{
-
-display:inline-block;
 background:#D6CFD9;
 color:black;
-
-padding:12px 50px;
+padding:10px 40px;
 border-radius:30px;
-
-margin-bottom:50px;
-
+display:inline-block;
 }
 
 
 /* CONTENEDOR */
 
 .contenedor{
-
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 align-items:center;
-
+margin-top:30px;
 }
 
 
 /* IZQUIERDA */
 
 .lado-izq{
-
 display:flex;
 flex-direction:column;
 align-items:center;
-
-gap:20px;
-
-width:300px;
-
+gap:15px;
 }
-
 
 .icono{
-
-width:150px;
-
+width:120px;
 }
 
 
-input[type=range]{
-
-width:260px;
-
-}
-
-input[type=number]{
-
-padding:10px;
-width:200px;
-
-}
-
-
-/* BOTON */
-
-button{
-
-padding:10px 20px;
-
-background:#6a3d6f;
-color:white;
-
-border:none;
-border-radius:8px;
-
-cursor:pointer;
-
-}
-
-
-/* TARJETA */
+/* TARJETA MONITOREO */
 
 .monitor{
 
-width:420px;
-height:280px;
+width:350px;
+height:220px;
 
 background:#D6CFD9;
 
-border-radius:30px;
+border-radius:25px;
 
 display:flex;
 flex-direction:column;
 
 align-items:center;
 
-padding-top:20px;
+padding-top:10px;
+
+color:black;
 
 }
 
 
 /* TEXTO MONITOREO */
 
-.tituloMonitor{
+.estado{
 
-font-size:28px;
+margin-top:5px;
+
+/* degradado */
 
 background:linear-gradient(
 90deg,
@@ -188,7 +98,7 @@ background:linear-gradient(
 }
 
 
-/* LED */
+/* CAJA LED */
 
 .ledBox{
 
@@ -199,13 +109,11 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-margin-top:30px;
-
 }
+
+
+/* LED */
 
 .ledBox img{
-
-width:90px;
-
+width:80px;
 }
-
