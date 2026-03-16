@@ -30,9 +30,13 @@ document.getElementById("valorH").innerHTML=humedad+"%";
 
 let ledH=document.getElementById("ledH");
 
-if(humedad <= 30){
+if(humedad < 8){
 
 ledH.className="led rojo";
+
+}else if(humedad == 8){
+
+ledH.className="led amarillo";
 
 }else{
 
@@ -55,11 +59,15 @@ document.getElementById("valorP").innerHTML=distancia+" m";
 
 let ledP=document.getElementById("ledP");
 
-if(distancia <= 2){
+if(distancia < 2){
 
 ledP.className="led rojo";
 
-}else{
+}else if(distancia == 3){
+
+ledP.className="led amarillo";
+
+}else if(distancia > 3){
 
 ledP.className="led verde";
 
@@ -80,9 +88,9 @@ let criticos=0;
 
 let humedad=document.getElementById("humedad").value;
 
-if(humedad <=30){
+if(humedad < 8){
 criticos++;
-}else if(humedad <=60){
+}else if(humedad == 8){
 advertencia++;
 }else{
 normales++;
@@ -90,11 +98,11 @@ normales++;
 
 let distancia=document.getElementById("distancia").value;
 
-if(distancia <=2){
+if(distancia < 2){
 criticos++;
-}else if(distancia <=5){
+}else if(distancia == 3){
 advertencia++;
-}else{
+}else if(distancia > 3){
 normales++;
 }
 
@@ -117,6 +125,7 @@ alerta.classList.remove("alerta-activa");
 }
 
 }
+
 
 function cerrarAlerta(){
 
