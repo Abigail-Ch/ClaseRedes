@@ -83,7 +83,7 @@ justify-content:space-between;
 padding:40px 80px;
 }
 
-/* PANEL RESUMEN */
+/* PANEL */
 
 .panel-resumen{
 width:28%;
@@ -206,7 +206,7 @@ background:linear-gradient(90deg,#6e3c6e,#b08ab0);
 -webkit-text-fill-color:transparent;
 }
 
-/* ALERTA CRITICA */
+/* ALERTA */
 
 .alerta{
 position:fixed;
@@ -228,6 +228,8 @@ z-index:999;
 position:relative;
 }
 
+/* BOTON X */
+
 .cerrar-alerta{
 position:absolute;
 top:-60px;
@@ -237,4 +239,16 @@ background:none;
 border:none;
 color:white;
 cursor:pointer;
+}
+
+/* PARPADEO */
+
+@keyframes parpadeo{
+0%{background:rgba(200,0,0,0.9);}
+50%{background:rgba(255,0,0,0.5);}
+100%{background:rgba(200,0,0,0.9);}
+}
+
+.alerta-activa{
+animation:parpadeo 1s infinite;
 }
