@@ -94,7 +94,7 @@ if(distancia <=2){
 criticos++;
 }else if(distancia <=5){
 advertencia++;
-}else if(distancia>5){
+}else{
 normales++;
 }
 
@@ -117,7 +117,6 @@ alerta.classList.remove("alerta-activa");
 }
 
 }
-
 
 function cerrarAlerta(){
 
