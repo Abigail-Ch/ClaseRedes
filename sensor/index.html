@@ -14,7 +14,6 @@
 
 <body>
 
-
 <!-- LOGIN -->
 
 <div id="login" class="login-container">
@@ -44,15 +43,15 @@
 
 </div>
 
-
-
 <!-- SISTEMA -->
 
 <div id="sistema" style="display:none;">
 
+<div class="layout">
+
+<div class="contenido-principal">
+
 <h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
-
-
 
 <!-- SENSOR HUMEDAD -->
 
@@ -72,7 +71,6 @@
 
 </div>
 
-
 <div class="sensor-derecha">
 
 <h3>Estado de monitoreo</h3>
@@ -84,8 +82,6 @@
 </div>
 
 </section>
-
-
 
 <!-- SENSOR PROXIMIDAD -->
 
@@ -109,7 +105,6 @@
 
 </div>
 
-
 <div class="sensor-derecha">
 
 <h3>Estado de monitoreo</h3>
@@ -124,12 +119,61 @@
 
 </div>
 
+<!-- PANEL DERECHO -->
+
+<div class="panel-resumen">
+
+<h2>Resumen del sistema</h2>
+
+<div class="tarjeta-principal">
+
+<p class="sub">RESUMEN DEL SISTEMA</p>
+<h3>Operación del sistema</h3>
+<p class="desc">Estado general de sensores en tiempo real.</p>
+
+</div>
+
+<div class="grid-resumen">
+
+<div class="card">
+<h3 id="total">2</h3>
+<p>Total sensores</p>
+</div>
+
+<div class="card">
+<h3 id="normales">0</h3>
+<p>Normales</p>
+</div>
+
+<div class="card">
+<h3 id="advertencia">0</h3>
+<p>Advertencia</p>
+</div>
+
+<div class="card">
+<h3 id="criticos">0</h3>
+<p>Críticos</p>
+</div>
+
+</div>
+
+<div class="logica">
+
+<h3>Lógica visual de LEDs</h3>
+
+<p><span class="rojo"></span> Rojo: condición crítica</p>
+<p><span class="amarillo"></span> Amarillo: advertencia</p>
+<p><span class="verde"></span> Verde: condición estable</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <script src="script.js"></script>
-
-</body>
-</html>
-
 
 </body>
 </html>
