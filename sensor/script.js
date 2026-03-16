@@ -20,8 +20,6 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 }
 
 
-/* HUMEDAD */
-
 function actualizar(){
 
 let humedad=document.getElementById("humedad").value;
@@ -49,8 +47,6 @@ actualizarResumen();
 }
 
 
-/* PROXIMIDAD */
-
 function actualizarProximidad(){
 
 let distancia=document.getElementById("distancia").value;
@@ -67,7 +63,7 @@ ledP.className="led rojo";
 
 ledP.className="led amarillo";
 
-}else if(distancia > 3){
+}else{
 
 ledP.className="led verde";
 
@@ -77,8 +73,6 @@ actualizarResumen();
 
 }
 
-
-/* RESUMEN */
 
 function actualizarResumen(){
 
@@ -102,7 +96,7 @@ if(distancia < 2){
 criticos++;
 }else if(distancia == 3){
 advertencia++;
-}else if(distancia > 3){
+}else{
 normales++;
 }
 
@@ -110,19 +104,13 @@ document.getElementById("normales").innerHTML=normales;
 document.getElementById("advertencia").innerHTML=advertencia;
 document.getElementById("criticos").innerHTML=criticos;
 
-let alerta=document.getElementById("alertaCritica");
-
-if(criticos>0){
-
-alerta.style.display="flex";
-alerta.classList.add("alerta-activa");
-
-}else{
-
-alerta.style.display="none";
-alerta.classList.remove("alerta-activa");
-
 }
+
+
+function apagarLeds(){
+
+document.getElementById("ledH").className="led";
+document.getElementById("ledP").className="led";
 
 }
 
@@ -132,6 +120,5 @@ function cerrarAlerta(){
 let alerta=document.getElementById("alertaCritica");
 
 alerta.style.display="none";
-alerta.classList.remove("alerta-activa");
 
 }
