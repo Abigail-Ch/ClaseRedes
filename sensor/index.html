@@ -52,11 +52,19 @@
 
 <div class="layout">
 
-<!-- PANEL RESUMEN -->
+<!-- RESUMEN -->
 
 <div class="panel-resumen">
 
 <h2>Resumen del sistema</h2>
+
+<div class="tarjeta-principal">
+
+<p class="sub">RESUMEN DEL SISTEMA</p>
+<h3>Operación del sistema</h3>
+<p>Estado general de sensores en tiempo real.</p>
+
+</div>
 
 <div class="grid-resumen">
 
@@ -92,6 +100,8 @@
 
 <div class="sensor-izquierda">
 
+<img src="img/humedad.png" class="icono">
+
 <input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
 
 <p class="valor">Húmedad <span id="valorH">0%</span></p>
@@ -119,6 +129,8 @@
 
 <div class="sensor-izquierda">
 
+<img src="img/proximidad.png" class="icono">
+
 <input type="number" id="distancia" placeholder="Metros">
 
 <br><br>
@@ -142,21 +154,6 @@
 </section>
 
 </div>
-
-</div>
-
-</div>
-
-
-<!-- ALERTA -->
-
-<div id="alertaCritica" class="alerta">
-
-<div class="alerta-contenido">
-
-<button class="cerrar-alerta" onclick="cerrarAlerta()">✖</button>
-
-⚠ ESTADO CRÍTICO EN SENSOR ⚠
 
 </div>
 
