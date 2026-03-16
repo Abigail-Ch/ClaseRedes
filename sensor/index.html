@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <title>Sistema de Monitoreo</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+
+<!-- LOGIN -->
 
 <div id="login" class="login-container">
 
 <div class="login-box">
 
 <div class="avatar">
+
 <svg viewBox="0 0 24 24">
 <circle cx="12" cy="8" r="4"/>
 <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
 </svg>
+
 </div>
 
 <label>Usuario</label>
@@ -38,42 +41,47 @@
 </div>
 </div>
 
+<!-- SISTEMA -->
 
-<div id="sistema" style="display:none;">
+<div id="sistema" style="display:none">
 
-<h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
+<h1 class="titulo">Sistema de<br><span>Monitoreo</span></h1>
 
 <div class="layout">
 
-<div class="panel-resumen">
+<!-- PANEL IZQUIERDO -->
 
-<h2>Área de monitoreo</h2>
+<div class="panel-resumen">
 
 <div class="tarjeta-principal">
 
-<h3>Seguimiento</h3>
-<p>Estado general de los sensores presentes, para conocer su estado actual</p>
+<h2>Seguimiento</h2>
+
+<p>
+Estado general de los sensores presentes,
+para conocer su estado actual
+</p>
 
 </div>
 
 <div class="grid-resumen">
 
 <div class="card">
-<h3 id="normales">0</h3>
+<h3 id="estables">1</h3>
 <p>Estable</p>
 </div>
 
 <div class="card">
-<h3 id="advertencia">0</h3>
+<h3 id="advertencias">0</h3>
 <p>Advertencia</p>
 </div>
 
 <div class="card">
-<h3 id="criticos">0</h3>
+<h3 id="criticos">1</h3>
 <p>Críticos</p>
 </div>
 
-<div class="card boton-power" onclick="toggleLeds()">
+<div class="card boton-power" onclick="toggleSistema()">
 
 <div class="power-icon">
 <div class="line"></div>
@@ -96,18 +104,21 @@
 <br>
 
 <p><b>Sensor de proximidad</b></p>
-<p><span class="rojo"></span> Rojo: Distancia &lt; 2 m</p>
-<p><span class="amarillo"></span> Amarillo: Distancia = 3 m</p>
-<p><span class="verde"></span> Verde: Distancia &gt; 3 m</p>
+<p><span class="rojo"></span> Distancia &lt; 2 m</p>
+<p><span class="amarillo"></span> Distancia = 3 m</p>
+<p><span class="verde"></span> Distancia &gt; 3 m</p>
 
 </div>
 
 </div>
 
+<!-- CONTENIDO -->
 
 <div class="contenido-principal">
 
-<section class="sensor">
+<!-- HUMEDAD -->
+
+<div class="sensor">
 
 <h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
 
@@ -117,9 +128,9 @@
 
 <img src="img/humedad.png" class="icono">
 
-<input type="range" id="humedad" min="0" max="20" value="0" oninput="actualizar()">
+<input type="range" id="humedad" min="0" max="20" value="0">
 
-<p class="valor">Humedad <span id="valorH">0%</span></p>
+<p class="valor">Humedad <span id="valorH">0</span>%</p>
 
 </div>
 
@@ -127,16 +138,17 @@
 
 <h3 class="estado-titulo">Estado de monitoreo</h3>
 
-<div id="ledH" class="led rojo-led"></div>
+<div id="ledHumedad" class="led rojo-led"></div>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
+<!-- PROXIMIDAD -->
 
-<section class="sensor">
+<div class="sensor">
 
 <h2 class="sensor-titulo">SENSOR DE PROXIMIDAD</h2>
 
@@ -146,13 +158,9 @@
 
 <img src="img/proximidad.png" class="icono">
 
-<input type="number" id="distancia" placeholder="Metros">
+<input type="range" id="distancia" min="0" max="10" value="0">
 
-<br><br>
-
-<button onclick="actualizarProximidad()">ENTER</button>
-
-<p class="valor">Proximidad <span id="valorP">0 m</span></p>
+<p class="valor">Distancia <span id="valorD">0</span> m</p>
 
 </div>
 
@@ -160,13 +168,7 @@
 
 <h3 class="estado-titulo">Estado de monitoreo</h3>
 
-<div id="ledP" class="led rojo-led"></div>
-
-</div>
-
-</div>
-
-</section>
+<div id="ledDistancia" class="led rojo-led"></div>
 
 </div>
 
@@ -174,14 +176,21 @@
 
 </div>
 
+</div>
 
-<div id="alertaCritica" class="alerta">
+</div>
+
+</div>
+
+<!-- ALERTA -->
+
+<div id="alerta" class="alerta">
 
 <div class="alerta-contenido">
 
-<button class="cerrar-alerta" onclick="cerrarAlerta()">✖</button>
+<button class="cerrar-alerta" onclick="cerrarAlerta()">X</button>
 
-⚠ ESTADO DE ADVERTENCIA EN SENSOR ⚠
+⚠ ADVERTENCIA ⚠
 
 </div>
 
