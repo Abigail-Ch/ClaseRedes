@@ -184,40 +184,46 @@ font-size:18px;
 /* LED REALISTA */
 
 .led{
+
 width:70px;
 height:70px;
 border-radius:50%;
 position:relative;
+border:6px solid #bfbfbf;
+
+box-shadow:
+inset -6px -6px 12px rgba(0,0,0,0.6),
+inset 6px 6px 10px rgba(255,255,255,0.4),
+0 4px 10px rgba(0,0,0,0.6);
+
 }
 
 .led::after{
+
 content:"";
 position:absolute;
 top:10px;
-left:18px;
+left:15px;
+
 width:30px;
 height:18px;
-background:rgba(255,255,255,0.6);
+
+background:rgba(255,255,255,0.7);
 border-radius:50%;
 filter:blur(2px);
+
 }
 
 .led.rojo{
-background:radial-gradient(circle at 30% 30%, #ff7b7b, #c00000 60%, #5a0000);
-box-shadow:
-0 0 20px rgba(255,0,0,0.8),
-0 0 40px rgba(255,0,0,0.5),
-inset -10px -10px 15px rgba(0,0,0,0.6),
-inset 8px 8px 10px rgba(255,255,255,0.25);
+
+background:radial-gradient(circle at 30% 30%, #ff8080, #c00000 60%, #5a0000);
+
 }
 
 .led.verde{
+
 background:radial-gradient(circle at 30% 30%, #8bff8b, #00a000 60%, #004400);
-box-shadow:
-0 0 20px rgba(0,255,0,0.8),
-0 0 40px rgba(0,255,0,0.5),
-inset -10px -10px 15px rgba(0,0,0,0.6),
-inset 8px 8px 10px rgba(255,255,255,0.25);
+
 }
 
 .sensor-derecha{
@@ -235,7 +241,8 @@ justify-content:center;
 
 .sensor-derecha h3{
 font-size:26px;
-margin-bottom:20px;
+margin-bottom:5px;
+margin-top:-10px;
 background:linear-gradient(90deg,#6e3c6e,#b08ab0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
