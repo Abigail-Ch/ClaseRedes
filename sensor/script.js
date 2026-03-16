@@ -82,6 +82,8 @@ let humedad=document.getElementById("humedad").value;
 
 if(humedad <=30){
 criticos++;
+}else if(humedad <=60){
+advertencia++;
 }else{
 normales++;
 }
@@ -90,12 +92,38 @@ let distancia=document.getElementById("distancia").value;
 
 if(distancia <=2){
 criticos++;
-}else{
+}else if(distancia <=5){
+advertencia++;
+}else if(distancia>5){
 normales++;
 }
 
 document.getElementById("normales").innerHTML=normales;
 document.getElementById("advertencia").innerHTML=advertencia;
 document.getElementById("criticos").innerHTML=criticos;
+
+let alerta=document.getElementById("alertaCritica");
+
+if(criticos>0){
+
+alerta.style.display="flex";
+alerta.classList.add("alerta-activa");
+
+}else{
+
+alerta.style.display="none";
+alerta.classList.remove("alerta-activa");
+
+}
+
+}
+
+
+function cerrarAlerta(){
+
+let alerta=document.getElementById("alertaCritica");
+
+alerta.style.display="none";
+alerta.classList.remove("alerta-activa");
 
 }
