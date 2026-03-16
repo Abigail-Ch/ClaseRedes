@@ -122,6 +122,28 @@ font-size:28px;
 color:#6e3c6e;
 }
 
+/* BOTON ENCENDER / APAGAR */
+
+.boton-apagar{
+cursor:pointer;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.boton-apagar:hover{
+background:#ece6ef;
+}
+
+.icono-power svg{
+width:35px;
+fill:#6e3c6e;
+margin-bottom:5px;
+}
+
+/* LOGICA LED */
+
 .logica{
 background:white;
 padding:20px;
@@ -181,55 +203,25 @@ width:150px;
 font-size:18px;
 }
 
-/* LED REALISTA */
+/* LED VISUAL */
 
 .led{
-
-width:70px;
-height:70px;
+width:90px;
+height:90px;
 border-radius:50%;
-position:relative;
-border:6px solid #bfbfbf;
-
-box-shadow:
-inset -6px -6px 12px rgba(0,0,0,0.6),
-inset 6px 6px 10px rgba(255,255,255,0.4),
-0 4px 10px rgba(0,0,0,0.6);
-
-}
-
-.led::after{
-
-content:"";
-position:absolute;
-top:10px;
-left:15px;
-
-width:30px;
-height:18px;
-
-background:rgba(255,255,255,0.7);
-border-radius:50%;
-filter:blur(2px);
-
+background:#ccc;
 }
 
 .led.rojo{
-
-background:radial-gradient(circle at 30% 30%, #ff8080, #c00000 60%, #5a0000);
-
-}
-
-.led.verde{
-
-background:radial-gradient(circle at 30% 30%, #8bff8b, #00a000 60%, #004400);
-
+background:red;
 }
 
 .led.amarillo{
+background:orange;
+}
 
-background:radial-gradient(circle at 30% 30%, #fff48a, #ffc400 60%, #a87a00);
-
+.led.verde{
+background:green;
 }
 
 .sensor-derecha{
@@ -247,8 +239,7 @@ justify-content:center;
 
 .sensor-derecha h3{
 font-size:26px;
-margin-bottom:5px;
-margin-top:-10px;
+margin-bottom:20px;
 background:linear-gradient(90deg,#6e3c6e,#b08ab0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
@@ -262,19 +253,21 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(200,0,0,0.9);
+background:rgba(255,200,0,0.9);
 display:none;
 align-items:center;
 justify-content:center;
 font-size:50px;
 font-weight:bold;
-color:white;
+color:black;
 z-index:999;
 }
 
 .alerta-contenido{
 position:relative;
 }
+
+/* BOTON CERRAR ALERTA */
 
 .cerrar-alerta{
 position:absolute;
@@ -283,34 +276,18 @@ right:-120px;
 font-size:40px;
 background:none;
 border:none;
-color:white;
+color:black;
 cursor:pointer;
 }
 
+/* PARPADEO ALERTA */
+
 @keyframes parpadeo{
-0%{background:rgba(200,0,0,0.9);}
-50%{background:rgba(255,0,0,0.5);}
-100%{background:rgba(200,0,0,0.9);}
+0%{background:rgba(255,200,0,0.9);}
+50%{background:rgba(255,230,120,0.6);}
+100%{background:rgba(255,200,0,0.9);}
 }
 
 .alerta-activa{
 animation:parpadeo 1s infinite;
-}
-
-.boton-apagar{
-cursor:pointer;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
-
-.boton-apagar:hover{
-background:#ece6ef;
-}
-
-.icono-power svg{
-width:35px;
-fill:#6e3c6e;
-margin-bottom:5px;
 }
