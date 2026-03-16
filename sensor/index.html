@@ -58,14 +58,6 @@
 
 <h2>Resumen del sistema</h2>
 
-<div class="tarjeta-principal">
-
-<p class="sub">RESUMEN DEL SISTEMA</p>
-<h3>Estado del sistema</h3>
-<p>Monitoreo en tiempo real de sensores.</p>
-
-</div>
-
 <div class="grid-resumen">
 
 <div class="card">
@@ -85,16 +77,6 @@
 
 </div>
 
-<div class="logica">
-
-<h3>Lógica visual de LEDs</h3>
-
-<p><span class="rojo"></span> Rojo: condición crítica</p>
-<p><span class="amarillo"></span> Amarillo: advertencia</p>
-<p><span class="verde"></span> Verde: condición estable</p>
-
-</div>
-
 </div>
 
 
@@ -110,8 +92,6 @@
 
 <div class="sensor-izquierda">
 
-<img src="img/humedad.png" class="icono">
-
 <input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
 
 <p class="valor">Húmedad <span id="valorH">0%</span></p>
@@ -122,7 +102,7 @@
 
 <h3>Estado de monitoreo</h3>
 
-<img id="ledH" class="led" src="img/led_rojo.png">
+<div id="ledH" class="led rojo"></div>
 
 </div>
 
@@ -139,8 +119,6 @@
 
 <div class="sensor-izquierda">
 
-<img src="img/proximidad.png" class="icono">
-
 <input type="number" id="distancia" placeholder="Metros">
 
 <br><br>
@@ -155,7 +133,7 @@
 
 <h3>Estado de monitoreo</h3>
 
-<img id="ledP" class="led" src="img/led_rojo.png">
+<div id="ledP" class="led rojo"></div>
 
 </div>
 
