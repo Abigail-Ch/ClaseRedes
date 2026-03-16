@@ -1,107 +1,163 @@
-let sistemaActivo=true
+let ledsEncendidos=true;
 
 function login(){
 
-let u=document.getElementById("usuario").value
-let p=document.getElementById("password").value
+let user="admin";
+let pass="1234";
 
-if(u==="admin" && p==="1234"){
+let u=document.getElementById("usuario").value;
+let p=document.getElementById("password").value;
 
-document.getElementById("login").style.display="none"
-document.getElementById("sistema").style.display="block"
+if(u==user && p==pass){
+
+document.getElementById("login").style.display="none";
+document.getElementById("sistema").style.display="block";
 
 }else{
 
-document.getElementById("error").innerText="Datos incorrectos"
+document.getElementById("error").innerHTML="Usuario incorrecto";
 
 }
 
 }
 
-let humedad=document.getElementById("humedad")
-let distancia=document.getElementById("distancia")
-
-humedad.oninput=actualizar
-distancia.oninput=actualizar
-
-function actualizar(){
-
-if(!sistemaActivo)return
-
-let h=humedad.value
-let d=distancia.value
-
-document.getElementById("valorH").innerText=h
-document.getElementById("valorD").innerText=d
-
-let ledH=document.getElementById("ledHumedad")
-let ledD=document.getElementById("ledDistancia")
 
 /* HUMEDAD */
 
-if(h<8){
+function actualizar(){
 
-ledH.className="led rojo-led"
+if(!ledsEncendidos)return;
 
-}else if(h==8){
+let humedad=document.getElementById("humedad").value;
 
-ledH.className="led amarillo-led"
-mostrarAlerta()
+document.getElementById("valorH").innerHTML=humedad+"%";
+
+let led=document.getElementById("ledH");
+
+led.className="led";
+
+if(humedad<8){
+led.classList.add("rojo-led");
+}
+else if(humedad==8){
+led.classList.add("amarillo-led");
+}
+else{
+led.classList.add("verde-led");
+}
+
+actualizarResumen();
+
+}
+
+
+/* PROXIMIDAD */
+
+function actualizarProximidad(){
+
+if(!ledsEncendidos)return;
+
+let distancia=document.getElementById("distancia").value;
+
+document.getElementById("valorP").innerHTML=distancia+" m";
+
+let led=document.getElementById("ledP");
+
+led.className="led";
+
+if(distancia<2){
+led.classList.add("rojo-led");
+}
+else if(distancia==3){
+led.classList.add("amarillo-led");
+}
+else{
+led.classList.add("verde-led");
+}
+
+actualizarResumen();
+
+}
+
+
+/* BOTON POWER */
+
+function toggleLeds(){
+
+let ledH=document.getElementById("ledH");
+let ledP=document.getElementById("ledP");
+
+if(ledsEncendidos){
+
+ledH.className="led";
+ledP.className="led";
+
+ledsEncendidos=false;
 
 }else{
 
-ledH.className="led verde-led"
+ledsEncendidos=true;
+actualizar();
+actualizarProximidad();
 
 }
 
-/* DISTANCIA */
+}
 
-if(d<2){
 
-ledD.className="led rojo-led"
+/* RESUMEN */
 
-}else if(d==3){
+function actualizarResumen(){
 
-ledD.className="led amarillo-led"
-mostrarAlerta()
+let normales=0;
+let advertencia=0;
+let criticos=0;
+
+let humedad=document.getElementById("humedad").value;
+
+if(humedad<8){
+criticos++;
+}
+else if(humedad==8){
+advertencia++;
+}
+else{
+normales++;
+}
+
+let distancia=document.getElementById("distancia").value;
+
+if(distancia<2){
+criticos++;
+}
+else if(distancia==3){
+advertencia++;
+}
+else{
+normales++;
+}
+
+document.getElementById("normales").innerHTML=normales;
+document.getElementById("advertencia").innerHTML=advertencia;
+document.getElementById("criticos").innerHTML=criticos;
+
+let alerta=document.getElementById("alertaCritica");
+
+if(advertencia>0){
+
+alerta.style.display="flex";
 
 }else{
 
-ledD.className="led verde-led"
+alerta.style.display="none";
 
 }
 
 }
 
-function mostrarAlerta(){
-
-document.getElementById("alerta").style.display="flex"
-
-}
 
 function cerrarAlerta(){
 
-document.getElementById("alerta").style.display="none"
-
-}
-
-function toggleSistema(){
-
-sistemaActivo=!sistemaActivo
-
-if(!sistemaActivo){
-
-document.getElementById("ledHumedad").className="led"
-document.getElementById("ledDistancia").className="led"
-
-humedad.disabled=true
-distancia.disabled=true
-
-}else{
-
-humedad.disabled=false
-distancia.disabled=false
-
-}
+document.getElementById("alertaCritica").style.display="none";
 
 }
