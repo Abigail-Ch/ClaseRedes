@@ -1,160 +1,107 @@
-let ledsEncendidos=true;
+let sistemaActivo=true
 
 function login(){
 
-let user="admin";
-let pass="1234";
+let u=document.getElementById("usuario").value
+let p=document.getElementById("password").value
 
-let u=document.getElementById("usuario").value;
-let p=document.getElementById("password").value;
+if(u==="admin" && p==="1234"){
 
-if(u==user && p==pass){
-
-document.getElementById("login").style.display="none";
-document.getElementById("sistema").style.display="block";
+document.getElementById("login").style.display="none"
+document.getElementById("sistema").style.display="block"
 
 }else{
 
-document.getElementById("error").innerHTML="Usuario incorrecto";
+document.getElementById("error").innerText="Datos incorrectos"
 
 }
 
 }
+
+let humedad=document.getElementById("humedad")
+let distancia=document.getElementById("distancia")
+
+humedad.oninput=actualizar
+distancia.oninput=actualizar
 
 function actualizar(){
 
-if(!ledsEncendidos)return;
+if(!sistemaActivo)return
 
-let humedad=document.getElementById("humedad").value;
+let h=humedad.value
+let d=distancia.value
 
-document.getElementById("valorH").innerHTML=humedad+"%";
+document.getElementById("valorH").innerText=h
+document.getElementById("valorD").innerText=d
 
-let led=document.getElementById("ledH");
+let ledH=document.getElementById("ledHumedad")
+let ledD=document.getElementById("ledDistancia")
 
-led.className="led";
+/* HUMEDAD */
 
-if(humedad<8){
-led.classList.add("rojo-led");
-}
-else if(humedad==8){
-led.classList.add("amarillo-led");
-}
-else{
-led.classList.add("verde-led");
-}
+if(h<8){
 
-actualizarResumen();
+ledH.className="led rojo-led"
 
-}
+}else if(h==8){
 
-function actualizarProximidad(){
-
-if(!ledsEncendidos)return;
-
-let distancia=document.getElementById("distancia").value;
-
-document.getElementById("valorP").innerHTML=distancia+" m";
-
-let led=document.getElementById("ledP");
-
-led.className="led";
-
-if(distancia<2){
-led.classList.add("rojo-led");
-}
-else if(distancia==3){
-led.classList.add("amarillo-led");
-}
-else{
-led.classList.add("verde-led");
-}
-
-actualizarResumen();
-
-}
-
-function toggleLeds(){
-
-let ledH=document.getElementById("ledH");
-let ledP=document.getElementById("ledP");
-
-let slider=document.getElementById("humedad");
-let proximidad=document.getElementById("distancia");
-
-if(ledsEncendidos){
-
-ledH.className="led";
-ledP.className="led";
-
-slider.disabled=true;
-proximidad.disabled=true;
-
-ledsEncendidos=false;
+ledH.className="led amarillo-led"
+mostrarAlerta()
 
 }else{
 
-slider.disabled=false;
-proximidad.disabled=false;
-
-ledsEncendidos=true;
-
-actualizar();
-actualizarProximidad();
+ledH.className="led verde-led"
 
 }
 
-}
+/* DISTANCIA */
 
-function actualizarResumen(){
+if(d<2){
 
-let normales=0;
-let advertencia=0;
-let criticos=0;
+ledD.className="led rojo-led"
 
-let humedad=document.getElementById("humedad").value;
+}else if(d==3){
 
-if(humedad<8){
-criticos++;
-}
-else if(humedad==8){
-advertencia++;
-}
-else{
-normales++;
-}
-
-let distancia=document.getElementById("distancia").value;
-
-if(distancia<2){
-criticos++;
-}
-else if(distancia==3){
-advertencia++;
-}
-else{
-normales++;
-}
-
-document.getElementById("normales").innerHTML=normales;
-document.getElementById("advertencia").innerHTML=advertencia;
-document.getElementById("criticos").innerHTML=criticos;
-
-let alerta=document.getElementById("alertaCritica");
-
-if(advertencia>0){
-
-alerta.style.display="flex";
+ledD.className="led amarillo-led"
+mostrarAlerta()
 
 }else{
 
-alerta.style.display="none";
+ledD.className="led verde-led"
 
 }
+
+}
+
+function mostrarAlerta(){
+
+document.getElementById("alerta").style.display="flex"
 
 }
 
 function cerrarAlerta(){
 
-document.getElementById("alertaCritica").style.display="none";
+document.getElementById("alerta").style.display="none"
+
+}
+
+function toggleSistema(){
+
+sistemaActivo=!sistemaActivo
+
+if(!sistemaActivo){
+
+document.getElementById("ledHumedad").className="led"
+document.getElementById("ledDistancia").className="led"
+
+humedad.disabled=true
+distancia.disabled=true
+
+}else{
+
+humedad.disabled=false
+distancia.disabled=false
+
+}
 
 }
