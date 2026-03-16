@@ -70,7 +70,7 @@ actualizarResumen();
 }
 
 
-/* RESUMEN DEL SISTEMA */
+/* RESUMEN */
 
 function actualizarResumen(){
 
@@ -105,9 +105,15 @@ document.getElementById("criticos").innerHTML=criticos;
 let alerta=document.getElementById("alertaCritica");
 
 if(criticos>0){
+
 alerta.style.display="flex";
+alerta.classList.add("alerta-activa");
+
 }else{
+
 alerta.style.display="none";
+alerta.classList.remove("alerta-activa");
+
 }
 
 }
@@ -115,6 +121,9 @@ alerta.style.display="none";
 
 function cerrarAlerta(){
 
-document.getElementById("alertaCritica").style.display="none";
+let alerta=document.getElementById("alertaCritica");
+
+alerta.style.display="none";
+alerta.classList.remove("alerta-activa");
 
 }
