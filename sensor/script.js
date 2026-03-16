@@ -1,141 +1,165 @@
-function login(){
+<!DOCTYPE html>
+<html>
 
-let user="admin";
-let pass="1234";
+<head>
 
-let u=document.getElementById("usuario").value;
-let p=document.getElementById("password").value;
+<meta charset="UTF-8">
+<title>Sistema de Monitoreo</title>
 
-if(u==user && p==pass){
+<link rel="stylesheet" href="style.css">
 
-document.getElementById("login").style.display="none";
-document.getElementById("sistema").style.display="block";
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
 
-}else{
+</head>
 
-document.getElementById("error").innerHTML="Usuario incorrecto";
+<body>
 
-}
+<!-- LOGIN -->
 
-}
+<div id="login" class="login-container">
 
+<div class="login-box">
 
-/* HUMEDAD */
+<div class="avatar">
 
-function actualizar(){
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="8" r="4"/>
+<path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+</svg>
 
-let humedad=document.getElementById("humedad").value;
+</div>
 
-document.getElementById("valorH").innerHTML=humedad+"%";
+<label>Usuario</label>
+<input type="text" id="usuario">
 
-let ledH=document.getElementById("ledH");
+<label>Contraseña</label>
+<input type="password" id="password">
 
-ledH.className="led";
+<button onclick="login()">LOGIN</button>
 
-if(humedad <=30){
+<p id="error"></p>
 
-ledH.classList.add("rojo");
+</div>
 
-}else if(humedad <=60){
-
-ledH.classList.add("amarillo");
-
-}else{
-
-ledH.classList.add("verde");
-
-}
-
-actualizarResumen();
-
-}
+</div>
 
 
-/* PROXIMIDAD */
+<!-- SISTEMA -->
 
-function actualizarProximidad(){
+<div id="sistema" style="display:none;">
 
-let distancia=document.getElementById("distancia").value;
+<h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
 
-document.getElementById("valorP").innerHTML=distancia+" m";
+<div class="layout">
 
-let ledP=document.getElementById("ledP");
+<!-- RESUMEN -->
 
-ledP.className="led";
+<div class="panel-resumen">
 
-if(distancia <=2){
+<h2>Resumen del sistema</h2>
 
-ledP.classList.add("rojo");
+<div class="tarjeta-principal">
 
-}else if(distancia <=5){
+<p class="sub">RESUMEN DEL SISTEMA</p>
+<h3>Operación del sistema</h3>
+<p>Estado general de sensores en tiempo real.</p>
 
-ledP.classList.add("amarillo");
+</div>
 
-}else{
+<div class="grid-resumen">
 
-ledP.classList.add("verde");
+<div class="card">
+<h3 id="normales">0</h3>
+<p>Normales</p>
+</div>
 
-}
+<div class="card">
+<h3 id="advertencia">0</h3>
+<p>Advertencia</p>
+</div>
 
-actualizarResumen();
+<div class="card">
+<h3 id="criticos">0</h3>
+<p>Críticos</p>
+</div>
 
-}
+</div>
 
-
-/* RESUMEN */
-
-function actualizarResumen(){
-
-let normales=0;
-let advertencia=0;
-let criticos=0;
-
-let humedad=document.getElementById("humedad").value;
-
-if(humedad <=30){
-criticos++;
-}else if(humedad <=60){
-advertencia++;
-}else{
-normales++;
-}
-
-let distancia=document.getElementById("distancia").value;
-
-if(distancia <=2){
-criticos++;
-}else if(distancia <=5){
-advertencia++;
-}else if(distancia>5){
-normales++;
-}
-
-document.getElementById("normales").innerHTML=normales;
-document.getElementById("advertencia").innerHTML=advertencia;
-document.getElementById("criticos").innerHTML=criticos;
-
-let alerta=document.getElementById("alertaCritica");
-
-if(criticos>0){
-
-alerta.style.display="flex";
-alerta.classList.add("alerta-activa");
-
-}else{
-
-alerta.style.display="none";
-alerta.classList.remove("alerta-activa");
-
-}
-
-}
+</div>
 
 
-function cerrarAlerta(){
+<!-- SENSORES -->
 
-let alerta=document.getElementById("alertaCritica");
+<div class="contenido-principal">
 
-alerta.style.display="none";
-alerta.classList.remove("alerta-activa");
+<section class="sensor">
 
-}
+<h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
+
+<div class="sensor-contenido">
+
+<div class="sensor-izquierda">
+
+<img src="img/humedad.png" class="icono">
+
+<input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
+
+<p class="valor">Húmedad <span id="valorH">0%</span></p>
+
+</div>
+
+<div class="sensor-derecha">
+
+<h3>Estado de monitoreo</h3>
+
+<div id="ledH" class="led rojo"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="sensor">
+
+<h2 class="sensor-titulo">SENSOR DE PROXIMIDAD</h2>
+
+<div class="sensor-contenido">
+
+<div class="sensor-izquierda">
+
+<img src="img/proximidad.png" class="icono">
+
+<input type="number" id="distancia" placeholder="Metros">
+
+<br><br>
+
+<button onclick="actualizarProximidad()">ENTER</button>
+
+<p class="valor">Proximidad <span id="valorP">0 m</span></p>
+
+</div>
+
+<div class="sensor-derecha">
+
+<h3>Estado de monitoreo</h3>
+
+<div id="ledP" class="led rojo"></div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
