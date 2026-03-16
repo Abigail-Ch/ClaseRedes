@@ -21,9 +21,6 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 
 }
 
-
-/* HUMEDAD */
-
 function actualizar(){
 
 if(!ledsEncendidos)return;
@@ -49,9 +46,6 @@ led.classList.add("verde-led");
 actualizarResumen();
 
 }
-
-
-/* PROXIMIDAD */
 
 function actualizarProximidad(){
 
@@ -79,33 +73,37 @@ actualizarResumen();
 
 }
 
-
-/* BOTON POWER */
-
 function toggleLeds(){
 
 let ledH=document.getElementById("ledH");
 let ledP=document.getElementById("ledP");
+
+let slider=document.getElementById("humedad");
+let proximidad=document.getElementById("distancia");
 
 if(ledsEncendidos){
 
 ledH.className="led";
 ledP.className="led";
 
+slider.disabled=true;
+proximidad.disabled=true;
+
 ledsEncendidos=false;
 
 }else{
 
+slider.disabled=false;
+proximidad.disabled=false;
+
 ledsEncendidos=true;
+
 actualizar();
 actualizarProximidad();
 
 }
 
 }
-
-
-/* RESUMEN */
 
 function actualizarResumen(){
 
@@ -154,7 +152,6 @@ alerta.style.display="none";
 }
 
 }
-
 
 function cerrarAlerta(){
 
