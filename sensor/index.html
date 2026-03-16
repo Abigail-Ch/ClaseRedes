@@ -14,8 +14,6 @@
 
 <body>
 
-<!-- LOGIN -->
-
 <div id="login" class="login-container">
 
 <div class="login-box">
@@ -44,16 +42,12 @@
 </div>
 
 
-<!-- SISTEMA -->
-
 <div id="sistema" style="display:none;">
 
 <h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
 
 <div class="layout">
 
-
-<!-- PANEL RESUMEN -->
 
 <div class="panel-resumen">
 
@@ -65,6 +59,7 @@
 <p>Estado general de los sensores presentes, para conocer su estado actual.</p>
 
 </div>
+
 
 <div class="grid-resumen">
 
@@ -81,6 +76,20 @@
 <div class="card">
 <h3 id="criticos">0</h3>
 <p>Críticos</p>
+</div>
+
+<div class="card boton-apagar" onclick="apagarLeds()">
+
+<div class="icono-power">
+
+<svg viewBox="0 0 24 24">
+<path d="M13 2h-2v10h2V2zm4.24 3.76l-1.42 1.42A6 6 0 1112 6v2a4 4 0 104 4 3.98 3.98 0 00-1.17-2.83l1.41-1.41A6 6 0 1112 4a5.98 5.98 0 015.24 1.76z"/>
+</svg>
+
+</div>
+
+<p>Apagar LEDs</p>
+
 </div>
 
 </div>
@@ -109,9 +118,8 @@
 </div>
 
 
-<!-- SENSORES -->
-
 <div class="contenido-principal">
+
 
 <section class="sensor">
 
@@ -180,8 +188,6 @@
 
 </div>
 
-
-<!-- ALERTA -->
 
 <div id="alertaCritica" class="alerta">
 
