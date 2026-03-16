@@ -80,7 +80,7 @@ actualizarResumen();
 }
 
 
-/* BOTON ENCENDIDO */
+/* BOTON POWER */
 
 function toggleLeds(){
 
