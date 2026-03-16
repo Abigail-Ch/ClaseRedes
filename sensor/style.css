@@ -1,174 +1,142 @@
 body{
-
 margin:0;
-font-family:Poppins;
+font-family:'Poppins', sans-serif;
 color:white;
 text-align:center;
-
 background:linear-gradient(#bfb6c7,#6e3c6e);
-
 }
 
 /* LOGIN */
 
 .login-container{
-
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-
 }
 
 .login-box{
-
 background:white;
 color:black;
 padding:40px;
 border-radius:20px;
 width:300px;
-
 }
 
 .login-box input{
-
 width:100%;
 padding:10px;
 margin:10px 0;
 border-radius:10px;
 border:none;
 background:#eee;
-
 }
 
 .login-box button{
-
 width:100%;
 padding:10px;
 border:none;
-background:#6e3c6e;
+background:#7a4b7a;
 color:white;
 border-radius:10px;
 cursor:pointer;
-
 }
 
-.avatar{
+/* ICONO */
 
+.avatar{
 width:90px;
 height:90px;
-background:#6e3c6e;
+background:#7a4b7a;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 margin:auto;
 margin-bottom:20px;
-
 }
 
 .avatar svg{
-
 width:50px;
 fill:white;
-
 }
 
 /* TITULO */
 
 .titulo{
-
 margin-top:40px;
 font-size:40px;
-
 }
 
 .titulo span{
-
 font-size:60px;
-font-family:Pacifico;
-
+font-family:'Pacifico', cursive;
 }
 
 /* LAYOUT */
 
 .layout{
-
 display:flex;
 justify-content:space-between;
 padding:40px 80px;
-
 }
 
 /* PANEL */
 
 .panel-resumen{
-
 width:28%;
 background:#d6cfd9;
 color:black;
 padding:30px;
 border-radius:25px;
 text-align:left;
-
 }
 
 .tarjeta-principal{
-
 background:white;
 padding:20px;
 border-radius:15px;
 margin-bottom:20px;
-
 }
 
 .grid-resumen{
-
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
 margin-bottom:20px;
-
 }
 
 .card{
-
 background:white;
 padding:20px;
 border-radius:15px;
 text-align:center;
-
 }
 
 .card h3{
-
 margin:0;
 font-size:28px;
 color:#6e3c6e;
-
 }
 
 /* BOTON POWER */
 
 .boton-power{
-
 display:flex;
 align-items:center;
 justify-content:center;
 cursor:pointer;
-
 }
 
-.power-icon{
+/* ICONO POWER */
 
+.power-icon{
 position:relative;
 width:40px;
 height:40px;
-
 }
 
 .line{
-
 position:absolute;
 top:0;
 left:50%;
@@ -176,11 +144,11 @@ transform:translateX(-50%);
 width:6px;
 height:18px;
 background:#6e3c6e;
-
+border-radius:4px;
+z-index:2;
 }
 
 .circle{
-
 position:absolute;
 bottom:0;
 left:50%;
@@ -190,26 +158,21 @@ height:30px;
 border:6px solid #6e3c6e;
 border-top:6px solid transparent;
 border-radius:50%;
-
 }
 
 /* LOGICA */
 
 .logica{
-
 background:white;
 padding:20px;
 border-radius:15px;
-
 }
 
 .rojo,.amarillo,.verde{
-
 width:12px;
 height:12px;
 border-radius:50%;
 display:inline-block;
-
 }
 
 .rojo{background:red;}
@@ -219,63 +182,72 @@ display:inline-block;
 /* SENSORES */
 
 .contenido-principal{
-
 width:65%;
-
 }
 
 .sensor{
-
 margin-top:60px;
-
 }
 
 .sensor-titulo{
-
 background:#d6cfd9;
 color:black;
 display:inline-block;
 padding:10px 40px;
 border-radius:30px;
-
 }
 
 .sensor-contenido{
-
 display:flex;
 justify-content:center;
 align-items:center;
 gap:150px;
 margin-top:40px;
-
 }
 
 .sensor-izquierda{
-
 display:flex;
 flex-direction:column;
 align-items:center;
 gap:20px;
 width:250px;
-
 }
 
 .icono{
-
 width:150px;
-
 }
 
 .valor{
-
 font-size:18px;
+}
 
+/* LED */
+
+.led{
+width:70px;
+height:70px;
+border-radius:50%;
+box-shadow:0 0 20px rgba(0,0,0,0.6) inset, 0 0 15px rgba(0,0,0,0.4);
+}
+
+.rojo-led{
+background:radial-gradient(circle,#ff4d4d,#7a0000);
+box-shadow:0 0 20px red;
+}
+
+.amarillo-led{
+background:radial-gradient(circle,#fff176,#bfa000);
+box-shadow:0 0 20px yellow;
+}
+
+.verde-led{
+background:radial-gradient(circle,#7dff7d,#006400);
+box-shadow:0 0 20px lime;
 }
 
 /* PANEL LED */
 
 .sensor-derecha{
-
 background:#d6cfd9;
 color:black;
 padding:40px;
@@ -286,93 +258,47 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-
 }
-
-/* TEXTO DEGRADADO */
 
 .estado-titulo{
-
 font-size:26px;
 margin-bottom:30px;
-
-background:linear-gradient(#bfb6c7,#6e3c6e);
--webkit-background-clip:text;
-color:transparent;
-
-}
-
-/* LED */
-
-.led{
-
-width:70px;
-height:70px;
-border-radius:50%;
-
-}
-
-.rojo-led{
-
-background:red;
-box-shadow:0 0 20px red;
-
-}
-
-.amarillo-led{
-
-background:yellow;
-box-shadow:0 0 20px yellow;
-
-}
-
-.verde-led{
-
-background:lime;
-box-shadow:0 0 20px lime;
-
+margin-top:-10px;
+color:black;
 }
 
 /* ALERTA */
 
 .alerta{
-
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-
 background:rgba(255,200,0,0.9);
-
 display:none;
 align-items:center;
 justify-content:center;
-
 font-size:50px;
 font-weight:bold;
-
 color:black;
-
+z-index:999;
 }
 
 .alerta-contenido{
-
 position:relative;
 padding:40px;
-
 }
 
 .cerrar-alerta{
-
 position:absolute;
-top:-20px;
-right:-20px;
+top:-15px;
+right:-15px;
 width:40px;
 height:40px;
 border:none;
 border-radius:50%;
 background:white;
+font-size:20px;
 cursor:pointer;
-
 }
