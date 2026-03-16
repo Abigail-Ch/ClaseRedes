@@ -122,27 +122,48 @@ font-size:28px;
 color:#6e3c6e;
 }
 
-/* BOTON ENCENDER / APAGAR */
+/* BOTON POWER */
 
-.boton-apagar{
-cursor:pointer;
+.boton-power{
 display:flex;
-flex-direction:column;
 align-items:center;
 justify-content:center;
+cursor:pointer;
 }
 
-.boton-apagar:hover{
-background:#ece6ef;
+/* ICONO POWER */
+
+.power-icon{
+position:relative;
+width:40px;
+height:40px;
 }
 
-.icono-power svg{
-width:35px;
-fill:#6e3c6e;
-margin-bottom:5px;
+.line{
+position:absolute;
+top:0;
+left:50%;
+transform:translateX(-50%);
+width:6px;
+height:18px;
+background:#6e3c6e;
+border-radius:4px;
+z-index:2;
 }
 
-/* LOGICA LED */
+.circle{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:30px;
+height:30px;
+border:6px solid #6e3c6e;
+border-top:6px solid transparent;
+border-radius:50%;
+}
+
+/* LOGICA */
 
 .logica{
 background:white;
@@ -203,26 +224,31 @@ width:150px;
 font-size:18px;
 }
 
-/* LED VISUAL */
+/* LED REALISTA */
 
 .led{
-width:90px;
-height:90px;
+width:70px;
+height:70px;
 border-radius:50%;
-background:#ccc;
+box-shadow:0 0 20px rgba(0,0,0,0.6) inset, 0 0 15px rgba(0,0,0,0.4);
 }
 
-.led.rojo{
-background:red;
+.rojo-led{
+background:radial-gradient(circle,#ff4d4d,#7a0000);
+box-shadow:0 0 20px red;
 }
 
-.led.amarillo{
-background:orange;
+.amarillo-led{
+background:radial-gradient(circle,#fff176,#bfa000);
+box-shadow:0 0 20px yellow;
 }
 
-.led.verde{
-background:green;
+.verde-led{
+background:radial-gradient(circle,#7dff7d,#006400);
+box-shadow:0 0 20px lime;
 }
+
+/* PANEL LED */
 
 .sensor-derecha{
 background:#d6cfd9;
@@ -237,12 +263,10 @@ align-items:center;
 justify-content:center;
 }
 
-.sensor-derecha h3{
+.estado-titulo{
 font-size:26px;
-margin-bottom:20px;
-background:linear-gradient(90deg,#6e3c6e,#b08ab0);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+margin-bottom:30px;
+margin-top:-10px;
 }
 
 /* ALERTA */
@@ -267,8 +291,6 @@ z-index:999;
 position:relative;
 }
 
-/* BOTON CERRAR ALERTA */
-
 .cerrar-alerta{
 position:absolute;
 top:-60px;
@@ -276,18 +298,5 @@ right:-120px;
 font-size:40px;
 background:none;
 border:none;
-color:black;
 cursor:pointer;
-}
-
-/* PARPADEO ALERTA */
-
-@keyframes parpadeo{
-0%{background:rgba(255,200,0,0.9);}
-50%{background:rgba(255,230,120,0.6);}
-100%{background:rgba(255,200,0,0.9);}
-}
-
-.alerta-activa{
-animation:parpadeo 1s infinite;
 }
