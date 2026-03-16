@@ -4,216 +4,223 @@ margin:0;
 font-family:'Poppins', sans-serif;
 color:white;
 text-align:center;
+
 background:linear-gradient(#bfb6c7,#6e3c6e);
 
 }
 
+
 /* LOGIN */
 
 .login-container{
+
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+
 }
 
 .login-box{
+
 background:white;
 color:black;
+
 padding:40px;
 border-radius:20px;
+
 width:300px;
+
 }
 
 .login-box input{
+
 width:100%;
 padding:10px;
 margin:10px 0;
+
 border-radius:10px;
 border:none;
 background:#eee;
+
 }
 
 .login-box button{
+
 width:100%;
 padding:10px;
+
 border:none;
 background:#7a4b7a;
+
 color:white;
+
 border-radius:10px;
+
 cursor:pointer;
+
 }
 
 
 /* ICONO USUARIO */
 
 .avatar{
+
 width:90px;
 height:90px;
+
 background:#7a4b7a;
+
 border-radius:50%;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 margin:auto;
 margin-bottom:20px;
+
 }
 
 .avatar svg{
+
 width:50px;
 fill:white;
+
 }
 
 
 /* TITULO */
 
 .titulo{
-margin-top:40px;
+
+margin-top:50px;
 font-size:40px;
+
 }
 
 .titulo span{
+
 font-size:60px;
 font-family:'Pacifico', cursive;
+
 }
 
 
-/* LAYOUT GENERAL */
-
-.layout{
-display:flex;
-justify-content:space-between;
-padding:40px 80px;
-}
-
-
-/* PANEL RESUMEN */
-
-.panel-resumen{
-width:28%;
-background:#d6cfd9;
-color:black;
-padding:30px;
-border-radius:25px;
-text-align:left;
-margin-left:-40px;
-}
-
-
-/* TARJETAS RESUMEN */
-
-.grid-resumen{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-margin-bottom:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.card h3{
-margin:0;
-font-size:28px;
-color:#6e3c6e;
-}
-
-
-/* SENSORES */
-
-.contenido-principal{
-width:65%;
-}
+/* SENSOR */
 
 .sensor{
-margin-top:60px;
+
+margin-top:100px;
+
 }
 
 .sensor-titulo{
+
 background:#d6cfd9;
 color:black;
+
 display:inline-block;
+
 padding:10px 40px;
+
 border-radius:30px;
+
 }
 
+
+/* CONTENEDOR */
+
 .sensor-contenido{
+
 display:flex;
 justify-content:center;
 align-items:center;
-gap:150px;
-margin-top:40px;
+
+gap:200px;
+
+margin-top:50px;
+
 }
 
+
+/* LADO IZQUIERDO */
+
 .sensor-izquierda{
+
 display:flex;
 flex-direction:column;
 align-items:center;
+
 gap:20px;
+
 width:250px;
+
 }
+
+
+/* ICONOS */
+
+.icono{
+
+width:150px;
+
+}
+
+
+/* VALOR */
 
 .valor{
+
 font-size:18px;
+
 }
 
 
-/* LED REALISTA */
+/* LED */
 
 .led{
 
-width:40px;
-height:40px;
+width:60px;
+height:60px;
+
 border-radius:50%;
+
 margin-top:10px;
 
-box-shadow:0 0 10px rgba(0,0,0,0.5) inset;
+background:#222;
+
+box-shadow:
+inset -5px -5px 10px rgba(0,0,0,0.7),
+inset 5px 5px 10px rgba(255,255,255,0.2);
 
 }
 
 
 /* LED ROJO */
 
-.rojo{
-background:red;
+.led.rojo{
+
+background:radial-gradient(circle at 30% 30%, #ff5a5a, #990000);
 
 box-shadow:
-0 0 10px red,
-0 0 20px red,
-0 0 40px red,
-0 0 60px red;
-
-}
-
-
-/* LED AMARILLO */
-
-.amarillo{
-background:yellow;
-
-box-shadow:
-0 0 10px yellow,
-0 0 20px yellow,
-0 0 40px yellow,
-0 0 60px yellow;
+0 0 15px rgba(255,0,0,0.7),
+inset -5px -5px 10px rgba(0,0,0,0.7),
+inset 5px 5px 10px rgba(255,255,255,0.3);
 
 }
 
 
 /* LED VERDE */
 
-.verde{
-background:#00ff00;
+.led.verde{
+
+background:radial-gradient(circle at 30% 30%, #7dff7d, #006600);
 
 box-shadow:
-0 0 10px #00ff00,
-0 0 20px #00ff00,
-0 0 40px #00ff00,
-0 0 60px #00ff00;
+0 0 15px rgba(0,255,0,0.7),
+inset -5px -5px 10px rgba(0,0,0,0.7),
+inset 5px 5px 10px rgba(255,255,255,0.3);
 
 }
 
@@ -221,76 +228,34 @@ box-shadow:
 /* CAJA MONITOREO */
 
 .sensor-derecha{
+
 background:#d6cfd9;
 color:black;
+
 padding:40px;
+
 border-radius:30px;
+
 width:320px;
 height:220px;
+
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
+
 }
 
 
 /* TEXTO MONITOREO */
 
 .sensor-derecha h3{
+
 font-size:26px;
 margin-bottom:20px;
 
 background:linear-gradient(90deg,#6e3c6e,#b08ab0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-}
 
-
-/* ALERTA CRITICA */
-
-.alerta{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(200,0,0,0.9);
-display:none;
-align-items:center;
-justify-content:center;
-font-size:50px;
-font-weight:bold;
-color:white;
-z-index:999;
-}
-
-.alerta-contenido{
-position:relative;
-}
-
-
-/* BOTON CERRAR ALERTA */
-
-.cerrar-alerta{
-position:absolute;
-top:-60px;
-right:-120px;
-font-size:40px;
-background:none;
-border:none;
-color:white;
-cursor:pointer;
-}
-
-
-/* ANIMACION PARPADEO ALERTA */
-
-@keyframes parpadeo{
-0%{background:rgba(200,0,0,0.9);}
-50%{background:rgba(255,0,0,0.5);}
-100%{background:rgba(200,0,0,0.9);}
-}
-
-.alerta-activa{
-animation:parpadeo 1s infinite;
 }
