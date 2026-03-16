@@ -87,16 +87,26 @@ function toggleLeds(){
 let ledH=document.getElementById("ledH");
 let ledP=document.getElementById("ledP");
 
+let humedad=document.getElementById("humedad");
+let distancia=document.getElementById("distancia");
+
 if(ledsEncendidos){
 
 ledH.className="led";
 ledP.className="led";
+
+humedad.disabled=true;
+distancia.disabled=true;
 
 ledsEncendidos=false;
 
 }else{
 
 ledsEncendidos=true;
+
+humedad.disabled=false;
+distancia.disabled=false;
+
 actualizar();
 actualizarProximidad();
 
