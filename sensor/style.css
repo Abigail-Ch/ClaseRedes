@@ -4,88 +4,7 @@ margin:0;
 font-family:'Poppins', sans-serif;
 color:white;
 text-align:center;
-
 background:linear-gradient(#bfb6c7,#6e3c6e);
-
-}
-
-
-/* LOGIN */
-
-.login-container{
-
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
-}
-
-.login-box{
-
-background:white;
-color:black;
-
-padding:40px;
-border-radius:20px;
-
-width:300px;
-
-}
-
-.login-box input{
-
-width:100%;
-padding:10px;
-margin:10px 0;
-
-border-radius:10px;
-border:none;
-background:#eee;
-
-}
-
-.login-box button{
-
-width:100%;
-padding:10px;
-
-border:none;
-background:#7a4b7a;
-
-color:white;
-
-border-radius:10px;
-
-cursor:pointer;
-
-}
-
-
-/* ICONO USUARIO */
-
-.avatar{
-
-width:90px;
-height:90px;
-
-background:#7a4b7a;
-
-border-radius:50%;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-margin:auto;
-margin-bottom:20px;
-
-}
-
-.avatar svg{
-
-width:50px;
-fill:white;
 
 }
 
@@ -107,11 +26,67 @@ font-family:'Pacifico', cursive;
 }
 
 
-/* SENSOR */
+/* LAYOUT */
+
+.layout{
+
+display:flex;
+justify-content:space-between;
+padding:40px 80px;
+
+}
+
+
+/* RESUMEN */
+
+.panel-resumen{
+
+width:30%;
+background:#d6cfd9;
+color:black;
+padding:30px;
+border-radius:25px;
+text-align:left;
+
+}
+
+.grid-resumen{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+
+}
+
+.card{
+
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+
+}
+
+.card h3{
+
+margin:0;
+font-size:28px;
+color:#6e3c6e;
+
+}
+
+
+/* SENSORES */
+
+.contenido-principal{
+
+width:65%;
+
+}
 
 .sensor{
 
-margin-top:100px;
+margin-top:60px;
 
 }
 
@@ -119,47 +94,31 @@ margin-top:100px;
 
 background:#d6cfd9;
 color:black;
-
 display:inline-block;
-
 padding:10px 40px;
-
 border-radius:30px;
 
 }
-
-
-/* CONTENEDOR */
 
 .sensor-contenido{
 
 display:flex;
 justify-content:center;
 align-items:center;
-
-gap:200px;
-
-margin-top:50px;
+gap:150px;
+margin-top:40px;
 
 }
-
-
-/* LADO IZQUIERDO */
 
 .sensor-izquierda{
 
 display:flex;
 flex-direction:column;
 align-items:center;
-
 gap:20px;
-
 width:250px;
 
 }
-
-
-/* ICONOS */
 
 .icono{
 
@@ -167,87 +126,26 @@ width:150px;
 
 }
 
-
-/* VALOR */
-
 .valor{
 
 font-size:18px;
 
 }
 
-
-/* LED */
-
-.led{
-
-width:60px;
-height:60px;
-
-border-radius:50%;
-
-margin-top:10px;
-
-background:#222;
-
-box-shadow:
-inset -5px -5px 10px rgba(0,0,0,0.7),
-inset 5px 5px 10px rgba(255,255,255,0.2);
-
-}
-
-
-/* LED ROJO */
-
-.led.rojo{
-
-background:radial-gradient(circle at 30% 30%, #ff5a5a, #990000);
-
-box-shadow:
-0 0 15px rgba(255,0,0,0.7),
-inset -5px -5px 10px rgba(0,0,0,0.7),
-inset 5px 5px 10px rgba(255,255,255,0.3);
-
-}
-
-
-/* LED VERDE */
-
-.led.verde{
-
-background:radial-gradient(circle at 30% 30%, #7dff7d, #006600);
-
-box-shadow:
-0 0 15px rgba(0,255,0,0.7),
-inset -5px -5px 10px rgba(0,0,0,0.7),
-inset 5px 5px 10px rgba(255,255,255,0.3);
-
-}
-
-
-/* CAJA MONITOREO */
-
 .sensor-derecha{
 
 background:#d6cfd9;
 color:black;
-
 padding:40px;
-
 border-radius:30px;
-
 width:320px;
 height:220px;
-
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 
 }
-
-
-/* TEXTO MONITOREO */
 
 .sensor-derecha h3{
 
@@ -257,5 +155,45 @@ margin-bottom:20px;
 background:linear-gradient(90deg,#6e3c6e,#b08ab0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+
+}
+
+
+/* LED REALISTA */
+
+.led{
+
+width:60px;
+height:60px;
+border-radius:50%;
+position:relative;
+
+}
+
+/* LED ROJO */
+
+.rojo{
+
+background:radial-gradient(circle at 30% 30%, #ff7a7a, #c00000 60%, #600000);
+
+box-shadow:
+0 0 20px rgba(255,0,0,0.8),
+0 0 40px rgba(255,0,0,0.4),
+inset -8px -8px 12px rgba(0,0,0,0.6),
+inset 8px 8px 12px rgba(255,255,255,0.3);
+
+}
+
+/* LED VERDE */
+
+.verde{
+
+background:radial-gradient(circle at 30% 30%, #8bff8b, #00a000 60%, #004400);
+
+box-shadow:
+0 0 20px rgba(0,255,0,0.8),
+0 0 40px rgba(0,255,0,0.4),
+inset -8px -8px 12px rgba(0,0,0,0.6),
+inset 8px 8px 12px rgba(255,255,255,0.3);
 
 }
