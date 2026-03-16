@@ -30,13 +30,19 @@ document.getElementById("valorH").innerHTML=humedad+"%";
 
 let ledH=document.getElementById("ledH");
 
-if(humedad <= 30){
+ledH.className="led";
 
-ledH.src="img/led_rojo.png";
+if(humedad <=30){
+
+ledH.classList.add("rojo");
+
+}else if(humedad <=60){
+
+ledH.classList.add("amarillo");
 
 }else{
 
-ledH.src="img/led_verde.png";
+ledH.classList.add("verde");
 
 }
 
@@ -55,13 +61,19 @@ document.getElementById("valorP").innerHTML=distancia+" m";
 
 let ledP=document.getElementById("ledP");
 
-if(distancia <= 2){
+ledP.className="led";
 
-ledP.src="img/led_rojo.png";
+if(distancia <=2){
+
+ledP.classList.add("rojo");
+
+}else if(distancia <=5){
+
+ledP.classList.add("amarillo");
 
 }else{
 
-ledP.src="img/led_verde.png";
+ledP.classList.add("verde");
 
 }
 
