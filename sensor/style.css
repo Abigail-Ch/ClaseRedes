@@ -226,6 +226,12 @@ background:radial-gradient(circle at 30% 30%, #8bff8b, #00a000 60%, #004400);
 
 }
 
+.led.amarillo{
+
+background:radial-gradient(circle at 30% 30%, #fff48a, #ffc400 60%, #a87a00);
+
+}
+
 .sensor-derecha{
 background:#d6cfd9;
 color:black;
