@@ -1,165 +1,101 @@
-<!DOCTYPE html>
-<html>
+function login(){
 
-<head>
+let user="admin";
+let pass="1234";
 
-<meta charset="UTF-8">
-<title>Sistema de Monitoreo</title>
+let u=document.getElementById("usuario").value;
+let p=document.getElementById("password").value;
 
-<link rel="stylesheet" href="style.css">
+if(u==user && p==pass){
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
+document.getElementById("login").style.display="none";
+document.getElementById("sistema").style.display="block";
 
-</head>
+}else{
 
-<body>
+document.getElementById("error").innerHTML="Usuario incorrecto";
 
-<!-- LOGIN -->
+}
 
-<div id="login" class="login-container">
+}
 
-<div class="login-box">
 
-<div class="avatar">
+/* HUMEDAD */
 
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="8" r="4"/>
-<path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
-</svg>
+function actualizar(){
 
-</div>
+let humedad=document.getElementById("humedad").value;
 
-<label>Usuario</label>
-<input type="text" id="usuario">
+document.getElementById("valorH").innerHTML=humedad+"%";
 
-<label>Contraseña</label>
-<input type="password" id="password">
+let ledH=document.getElementById("ledH");
 
-<button onclick="login()">LOGIN</button>
+if(humedad <= 30){
 
-<p id="error"></p>
+ledH.className="led rojo";
 
-</div>
+}else{
 
-</div>
+ledH.className="led verde";
 
+}
 
-<!-- SISTEMA -->
+actualizarResumen();
 
-<div id="sistema" style="display:none;">
+}
 
-<h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
 
-<div class="layout">
+/* PROXIMIDAD */
 
-<!-- RESUMEN -->
+function actualizarProximidad(){
 
-<div class="panel-resumen">
+let distancia=document.getElementById("distancia").value;
 
-<h2>Resumen del sistema</h2>
+document.getElementById("valorP").innerHTML=distancia+" m";
 
-<div class="tarjeta-principal">
+let ledP=document.getElementById("ledP");
 
-<p class="sub">RESUMEN DEL SISTEMA</p>
-<h3>Operación del sistema</h3>
-<p>Estado general de sensores en tiempo real.</p>
+if(distancia <= 2){
 
-</div>
+ledP.className="led rojo";
 
-<div class="grid-resumen">
+}else{
 
-<div class="card">
-<h3 id="normales">0</h3>
-<p>Normales</p>
-</div>
+ledP.className="led verde";
 
-<div class="card">
-<h3 id="advertencia">0</h3>
-<p>Advertencia</p>
-</div>
+}
 
-<div class="card">
-<h3 id="criticos">0</h3>
-<p>Críticos</p>
-</div>
+actualizarResumen();
 
-</div>
+}
 
-</div>
 
+/* RESUMEN */
 
-<!-- SENSORES -->
+function actualizarResumen(){
 
-<div class="contenido-principal">
+let normales=0;
+let advertencia=0;
+let criticos=0;
 
-<section class="sensor">
+let humedad=document.getElementById("humedad").value;
 
-<h2 class="sensor-titulo">SENSOR DE HÚMEDAD</h2>
+if(humedad <=30){
+criticos++;
+}else{
+normales++;
+}
 
-<div class="sensor-contenido">
+let distancia=document.getElementById("distancia").value;
 
-<div class="sensor-izquierda">
+if(distancia <=2){
+criticos++;
+}else{
+normales++;
+}
 
-<img src="img/humedad.png" class="icono">
+document.getElementById("normales").innerHTML=normales;
+document.getElementById("advertencia").innerHTML=advertencia;
+document.getElementById("criticos").innerHTML=criticos;
 
-<input type="range" id="humedad" min="0" max="100" oninput="actualizar()">
-
-<p class="valor">Húmedad <span id="valorH">0%</span></p>
-
-</div>
-
-<div class="sensor-derecha">
-
-<h3>Estado de monitoreo</h3>
-
-<div id="ledH" class="led rojo"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="sensor">
-
-<h2 class="sensor-titulo">SENSOR DE PROXIMIDAD</h2>
-
-<div class="sensor-contenido">
-
-<div class="sensor-izquierda">
-
-<img src="img/proximidad.png" class="icono">
-
-<input type="number" id="distancia" placeholder="Metros">
-
-<br><br>
-
-<button onclick="actualizarProximidad()">ENTER</button>
-
-<p class="valor">Proximidad <span id="valorP">0 m</span></p>
-
-</div>
-
-<div class="sensor-derecha">
-
-<h3>Estado de monitoreo</h3>
-
-<div id="ledP" class="led rojo"></div>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
