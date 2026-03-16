@@ -52,7 +52,7 @@
 
 <div class="layout">
 
-<!-- RESUMEN -->
+<!-- PANEL RESUMEN -->
 
 <div class="panel-resumen">
 
@@ -61,8 +61,8 @@
 <div class="tarjeta-principal">
 
 <p class="sub">RESUMEN DEL SISTEMA</p>
-<h3>Operación del sistema</h3>
-<p>Estado general de sensores en tiempo real.</p>
+<h3>Estado del sistema</h3>
+<p>Monitoreo en tiempo real de sensores.</p>
 
 </div>
 
@@ -82,6 +82,16 @@
 <h3 id="criticos">0</h3>
 <p>Críticos</p>
 </div>
+
+</div>
+
+<div class="logica">
+
+<h3>Lógica visual de LEDs</h3>
+
+<p><span class="rojo"></span> Rojo: condición crítica</p>
+<p><span class="amarillo"></span> Amarillo: advertencia</p>
+<p><span class="verde"></span> Verde: condición estable</p>
 
 </div>
 
@@ -154,6 +164,21 @@
 </section>
 
 </div>
+
+</div>
+
+</div>
+
+
+<!-- ALERTA -->
+
+<div id="alertaCritica" class="alerta">
+
+<div class="alerta-contenido">
+
+<button class="cerrar-alerta" onclick="cerrarAlerta()">✖</button>
+
+⚠ ESTADO CRÍTICO EN SENSOR ⚠
 
 </div>
 
