@@ -14,8 +14,6 @@
 
 <body>
 
-<!-- LOGIN -->
-
 <div id="login" class="login-container">
 
 <div class="login-box">
@@ -41,15 +39,11 @@
 </div>
 
 
-<!-- SISTEMA -->
-
 <div id="sistema" style="display:none;">
 
 <h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
 
 <div class="layout">
-
-<!-- PANEL RESUMEN -->
 
 <div class="panel-resumen">
 
@@ -78,8 +72,6 @@
 <h3 id="criticos">0</h3>
 <p>Críticos</p>
 </div>
-
-<!-- BOTON POWER -->
 
 <div class="card boton-power" onclick="toggleLeds()">
 
@@ -113,8 +105,6 @@
 </div>
 
 
-<!-- SENSORES -->
-
 <div class="contenido-principal">
 
 <section class="sensor">
@@ -127,7 +117,7 @@
 
 <img src="img/humedad.png" class="icono">
 
-<input type="range" id="humedad" min="0" max="20" oninput="actualizar()">
+<input type="range" id="humedad" min="0" max="20" value="0" oninput="actualizar()">
 
 <p class="valor">Humedad <span id="valorH">0%</span></p>
 
@@ -184,8 +174,6 @@
 
 </div>
 
-
-<!-- ALERTA -->
 
 <div id="alertaCritica" class="alerta">
 
