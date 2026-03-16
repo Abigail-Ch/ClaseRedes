@@ -1,3 +1,5 @@
+let ledsEncendidos=true;
+
 function login(){
 
 let user="admin";
@@ -21,6 +23,8 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 
 
 function actualizar(){
+
+if(!ledsEncendidos) return;
 
 let humedad=document.getElementById("humedad").value;
 
@@ -48,6 +52,8 @@ actualizarResumen();
 
 
 function actualizarProximidad(){
+
+if(!ledsEncendidos) return;
 
 let distancia=document.getElementById("distancia").value;
 
@@ -104,21 +110,39 @@ document.getElementById("normales").innerHTML=normales;
 document.getElementById("advertencia").innerHTML=advertencia;
 document.getElementById("criticos").innerHTML=criticos;
 
+if(advertencia>0){
+
+document.getElementById("alertaCritica").style.display="flex";
+
+}
+
 }
 
 
-function apagarLeds(){
+function toggleLeds(){
 
-document.getElementById("ledH").className="led";
-document.getElementById("ledP").className="led";
+let ledH=document.getElementById("ledH");
+let ledP=document.getElementById("ledP");
+
+if(ledsEncendidos){
+
+ledH.className="led";
+ledP.className="led";
+ledsEncendidos=false;
+
+}else{
+
+ledsEncendidos=true;
+actualizar();
+actualizarProximidad();
+
+}
 
 }
 
 
 function cerrarAlerta(){
 
-let alerta=document.getElementById("alertaCritica");
-
-alerta.style.display="none";
+document.getElementById("alertaCritica").style.display="none";
 
 }
