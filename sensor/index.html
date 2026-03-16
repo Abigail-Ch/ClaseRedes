@@ -14,6 +14,8 @@
 
 <body>
 
+<!-- LOGIN -->
+
 <div id="login" class="login-container">
 
 <div class="login-box">
@@ -42,6 +44,8 @@
 </div>
 
 
+<!-- SISTEMA -->
+
 <div id="sistema" style="display:none;">
 
 <h1 class="titulo">ESTADO DE LOS <span>Sensores</span></h1>
@@ -49,15 +53,16 @@
 <div class="layout">
 
 
+<!-- PANEL RESUMEN -->
+
 <div class="panel-resumen">
 
-<h2>Resumen del sistema</h2>
+<h2>Área de monitoreo</h2>
 
 <div class="tarjeta-principal">
 
-<p class="sub">RESUMEN DEL SISTEMA</p>
-<h3>Estado del sistema</h3>
-<p>Monitoreo en tiempo real de sensores.</p>
+<h3>Seguimiento</h3>
+<p>Estado general de los sensores presentes, para conocer su estado actual.</p>
 
 </div>
 
@@ -65,7 +70,7 @@
 
 <div class="card">
 <h3 id="normales">0</h3>
-<p>Normales</p>
+<p>Estable</p>
 </div>
 
 <div class="card">
@@ -80,18 +85,31 @@
 
 </div>
 
+
 <div class="logica">
 
-<h3>Lógica visual de LEDs</h3>
+<h3>Significado de color de los LEDs</h3>
 
-<p><span class="rojo"></span> Rojo: condición crítica</p>
-<p><span class="amarillo"></span> Amarillo: advertencia</p>
-<p><span class="verde"></span> Verde: condición estable</p>
+<h4>Sensor de humedad</h4>
+
+<p><span class="rojo"></span> Rojo: Humedad &lt; 8%</p>
+<p><span class="amarillo"></span> Amarillo: Humedad = 8%</p>
+<p><span class="verde"></span> Verde: Humedad &gt; 8%</p>
+
+<br>
+
+<h4>Sensor de proximidad</h4>
+
+<p><span class="rojo"></span> Rojo: Distancia &lt; 2 m</p>
+<p><span class="amarillo"></span> Amarillo: Distancia = 3 m</p>
+<p><span class="verde"></span> Verde: Distancia &gt; 3 m</p>
 
 </div>
 
 </div>
 
+
+<!-- SENSORES -->
 
 <div class="contenido-principal">
 
@@ -162,6 +180,8 @@
 
 </div>
 
+
+<!-- ALERTA -->
 
 <div id="alertaCritica" class="alerta">
 
