@@ -42,25 +42,6 @@ border-radius:10px;
 cursor:pointer;
 }
 
-/* ICONO */
-
-.avatar{
-width:90px;
-height:90px;
-background:#7a4b7a;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
-margin-bottom:20px;
-}
-
-.avatar svg{
-width:50px;
-fill:white;
-}
-
 /* TITULO */
 
 .titulo{
@@ -128,8 +109,6 @@ justify-content:center;
 cursor:pointer;
 }
 
-/* ICONO POWER */
-
 .power-icon{
 position:relative;
 width:40px;
@@ -144,8 +123,6 @@ transform:translateX(-50%);
 width:6px;
 height:18px;
 background:#6e3c6e;
-border-radius:4px;
-z-index:2;
 }
 
 .circle{
@@ -159,25 +136,6 @@ border:6px solid #6e3c6e;
 border-top:6px solid transparent;
 border-radius:50%;
 }
-
-/* LOGICA */
-
-.logica{
-background:white;
-padding:20px;
-border-radius:15px;
-}
-
-.rojo,.amarillo,.verde{
-width:12px;
-height:12px;
-border-radius:50%;
-display:inline-block;
-}
-
-.rojo{background:red;}
-.amarillo{background:orange;}
-.verde{background:green;}
 
 /* SENSORES */
 
@@ -211,6 +169,7 @@ flex-direction:column;
 align-items:center;
 gap:20px;
 width:250px;
+margin-top:-60px;
 }
 
 .icono{
@@ -219,6 +178,31 @@ width:150px;
 
 .valor{
 font-size:18px;
+}
+
+.sensor-derecha{
+background:#d6cfd9;
+color:black;
+padding:40px;
+border-radius:30px;
+width:320px;
+height:220px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.estado-titulo{
+
+font-size:26px;
+margin-bottom:20px;
+margin-top:-30px;
+
+background: linear-gradient(90deg,#5a2d82,#a855f7);
+-webkit-background-clip:text;
+color:transparent;
+
 }
 
 /* LED */
@@ -243,28 +227,6 @@ box-shadow:0 0 20px yellow;
 .verde-led{
 background:radial-gradient(circle,#7dff7d,#006400);
 box-shadow:0 0 20px lime;
-}
-
-/* PANEL LED */
-
-.sensor-derecha{
-background:#d6cfd9;
-color:black;
-padding:40px;
-border-radius:30px;
-width:320px;
-height:220px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
-
-.estado-titulo{
-font-size:26px;
-margin-bottom:30px;
-margin-top:-10px;
-color:black;
 }
 
 /* ALERTA */
