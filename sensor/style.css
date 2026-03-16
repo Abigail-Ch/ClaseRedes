@@ -296,3 +296,21 @@ cursor:pointer;
 .alerta-activa{
 animation:parpadeo 1s infinite;
 }
+
+.boton-apagar{
+cursor:pointer;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.boton-apagar:hover{
+background:#ece6ef;
+}
+
+.icono-power svg{
+width:35px;
+fill:#6e3c6e;
+margin-bottom:5px;
+}
