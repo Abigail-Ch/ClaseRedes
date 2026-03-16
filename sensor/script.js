@@ -19,6 +19,7 @@ document.getElementById("error").innerHTML="Usuario incorrecto";
 
 }
 
+
 /* HUMEDAD */
 
 function actualizar(){
@@ -42,6 +43,7 @@ ledH.src="img/led_verde.png";
 actualizarResumen();
 
 }
+
 
 /* PROXIMIDAD */
 
@@ -67,13 +69,15 @@ actualizarResumen();
 
 }
 
-/* PANEL RESUMEN */
+
+/* RESUMEN DEL SISTEMA */
 
 function actualizarResumen(){
 
 let normales=0;
 let advertencia=0;
 let criticos=0;
+
 
 /* HUMEDAD */
 
@@ -93,6 +97,7 @@ normales++;
 
 }
 
+
 /* PROXIMIDAD */
 
 let distancia=document.getElementById("distancia").value;
@@ -111,10 +116,26 @@ normales++;
 
 }
 
+
 /* ACTUALIZAR PANEL */
 
 document.getElementById("normales").innerHTML=normales;
 document.getElementById("advertencia").innerHTML=advertencia;
 document.getElementById("criticos").innerHTML=criticos;
+
+
+/* ALERTA */
+
+let alerta=document.getElementById("alertaCritica");
+
+if(criticos>0){
+
+alerta.style.display="flex";
+
+}else{
+
+alerta.style.display="none";
+
+}
 
 }
