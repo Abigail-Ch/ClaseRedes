@@ -11,7 +11,7 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 float humedad = 0;
-int pwm = 0;           // 🔥 ahora usamos PWM
+int pwm = 0;
 String rango = "Fuera";
 
 void setup() {
@@ -26,20 +26,17 @@ void setup() {
 void loop() {
 
    float h = dht.readHumidity();
-
-   if (isnan(h)) {
-      return;
-   }
+   if (isnan(h)) return;
 
    humedad = h;
 
-   // 🔥 CONTROL POR RANGOS
+   // 🔥 RANGOS
    if (humedad >= 30 && humedad < 40) {
 
       digitalWrite(IN1, HIGH);
       digitalWrite(IN2, LOW);
 
-      pwm = 30;
+      pwm = 120;
       rango = "Baja";
    }
    else if (humedad >= 40 && humedad < 50) {
@@ -47,7 +44,7 @@ void loop() {
       digitalWrite(IN1, HIGH);
       digitalWrite(IN2, LOW);
 
-      pwm = 100;
+      pwm = 180;
       rango = "Media";
    }
    else if (humedad >= 50 && humedad <= 70) {
@@ -63,20 +60,26 @@ void loop() {
       pwm = 0;
       rango = "Fuera";
 
-      // 🔥 FRENO DEL MOTOR
+      // 🔴 FRENO
       digitalWrite(IN1, LOW);
       digitalWrite(IN2, LOW);
    }
 
-   // Aplicar PWM
    analogWrite(ENA, pwm);
 
-   // 🔥 ENVÍO A PYTHON
-   Serial.print(humedad);
-   Serial.print(",");
-   Serial.print(rango);
-   Serial.print(",");
-   Serial.println(pwm);
+   // 🔥 RESPUESTA A PYTHON
+   if (Serial.available()) {
+      String comando = Serial.readStringUntil('\n');
+      comando.trim();
+
+      if (comando == "GET") {
+         Serial.print(humedad);
+         Serial.print(",");
+         Serial.print(rango);
+         Serial.print(",");
+         Serial.println(pwm);
+      }
+   }
 
    delay(2000);
 }
