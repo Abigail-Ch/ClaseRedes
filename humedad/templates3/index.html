@@ -2,46 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard DHT11</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>Monitor de Humedad</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Monitoreo del Sensor DHT11</h1>
+    <div class="container">
+        <h1>Monitor de Sensor</h1>
 
-    <!-- TARJETA HUMEDAD -->
-    <div class="card">
-        <h2>Humedad</h2>
-        <p id="humedad">-- %</p>
+        <div class="card">
+            <h2>Humedad</h2>
+            <p id="humedad">-- %</p>
+        </div>
+
+        <div class="card">
+            <h2>Rango</h2>
+            <p id="rango">--</p>
+        </div>
+
+        <div class="card">
+            <h2>Velocidad PWM</h2>
+            <p id="velocidad">--</p>
+        </div>
+
+        <div class="card estado">
+            <h2>Estado</h2>
+            <p id="estado">Esperando datos...</p>
+        </div>
     </div>
 
-    <!-- TARJETA RANGO -->
-    <div class="card">
-        <h2>Rango</h2>
-        <p id="rango">--</p>
-    </div>
+    <!-- 🔥 IMPORTANTE -->
+    <script src="/static/app.js"></script>
 
-    <!-- TARJETA VELOCIDAD -->
-    <div class="card">
-        <h2>Velocidad PWM</h2>
-        <p id="velocidad">--</p>
-    </div>
-
-    <!-- TARJETA ESTADO -->
-    <div class="card">
-        <h2>Estado del Sensor</h2>
-        <p id="estado">Esperando datos...</p>
-    </div>
-
-    <!-- BOTÓN CERRAR SESIÓN -->
-    <br>
-    <a href="/logout">
-        <button>Cerrar sesión</button>
-    </a>
-
-</div>
-
-<script src="/static/script.js"></script>
 </body>
 </html>
