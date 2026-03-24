@@ -10,28 +10,37 @@ PORT = 5001
 def main():
     ser = serial.Serial(SERIAL_PORT, BAUDRATE, timeout=1)
 
-    print("Servidor listo...")
+    print("Conectado a Arduino...")
+    print("Servidor TCP escuchando...")
 
-    ultimo_dato = "0,Error,0"
+    ultimo_dato = "0,Sin datos,0"
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind((HOST, PORT))
-        s.listen()
+        s.listen(5)
 
         while True:
             # 🔥 LEER SIEMPRE DEL ARDUINO
-            linea = ser.readline().decode().strip()
+            if ser.in_waiting:
+                linea = ser.readline().decode(errors="ignore").strip()
 
-            if linea:
-                partes = linea.split(",")
-                if len(partes) == 3:
-                    ultimo_dato = linea
+                if linea:
+                    partes = linea.split(",")
+                    if len(partes) == 3:
+                        ultimo_dato = linea
+                        print("Dato recibido:", ultimo_dato)
 
-            # 🔥 CLIENTE WEB
-            conn, addr = s.accept()
+            # 🔥 ATENDER WEB
+            try:
+                s.settimeout(0.1)
+                conn, addr = s.accept()
+            except:
+                continue
+
             with conn:
-                conn.recv(1024)
+                conn.recv(1024)  # no importa lo que mande
                 conn.sendall((ultimo_dato + "\n").encode())
+
 
 if __name__ == "__main__":
     main()
