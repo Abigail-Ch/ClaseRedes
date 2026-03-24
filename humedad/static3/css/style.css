@@ -1,1 +1,90 @@
+/* ====== ESTILO GENERAL ====== */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: white;
+    text-align: center;
+    margin: 0;
+}
 
+/* ====== CONTENEDOR ====== */
+.container {
+    margin-top: 40px;
+}
+
+/* ====== TITULO ====== */
+h1 {
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* ====== TARJETAS ====== */
+.card {
+    background: #1e293b;
+    margin: 15px auto;
+    padding: 20px;
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+/* ====== TEXTOS ====== */
+h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #38bdf8;
+}
+
+p {
+    font-size: 26px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* ====== ESTADO ====== */
+#estado {
+    font-size: 18px;
+    color: #22c55e;
+}
+
+/* ====== LOGIN ====== */
+form {
+    margin-top: 30px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #38bdf8;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+}
