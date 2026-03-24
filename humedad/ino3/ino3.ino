@@ -11,65 +11,72 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 float humedad = 0;
-int velocidad = 0;
+int pwm = 0;           // 🔥 ahora usamos PWM
 String rango = "Fuera";
 
 void setup() {
-  Serial.begin(9600);
-  dht.begin();
+   Serial.begin(9600);
+   dht.begin();
 
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(ENA, OUTPUT);
-
-  // Dirección fija del motor
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
+   pinMode(IN1, OUTPUT);
+   pinMode(IN2, OUTPUT);
+   pinMode(ENA, OUTPUT);
 }
 
 void loop() {
 
-  //  Leer humedad
-  float h = dht.readHumidity();
+   float h = dht.readHumidity();
 
-  if (!isnan(h)) {
-    humedad = h;
+   if (isnan(h)) {
+      return;
+   }
 
-    //  Determinar rango y velocidad
-    if (humedad >= 30 && humedad < 40) {
-      velocidad = 80;
+   humedad = h;
+
+   // 🔥 CONTROL POR RANGOS
+   if (humedad >= 30 && humedad < 40) {
+
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+
+      pwm = 30;
       rango = "Baja";
-    }
-    else if (humedad >= 40 && humedad < 50) {
-      velocidad = 150;
+   }
+   else if (humedad >= 40 && humedad < 50) {
+
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+
+      pwm = 100;
       rango = "Media";
-    }
-    else if (humedad >= 50 && humedad <= 70) {
-      velocidad = 255;
+   }
+   else if (humedad >= 50 && humedad <= 70) {
+
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+
+      pwm = 255;
       rango = "Alta";
-    }
-    else {
-      velocidad = 0;
+   }
+   else {
+
+      pwm = 0;
       rango = "Fuera";
-    }
 
-    //  Aplicar velocidad al motor
-    analogWrite(ENA, velocidad);
-  }
+      // 🔥 FRENO DEL MOTOR
+      digitalWrite(IN1, LOW);
+      digitalWrite(IN2, LOW);
+   }
 
-  //  Revisar si hay petición desde Python (socket)
-  if (Serial.available()) {
-    String comando = Serial.readStringUntil('\n');
-    comando.trim();
+   // Aplicar PWM
+   analogWrite(ENA, pwm);
 
-    if (comando == "GET") {
-      Serial.print(humedad);
-      Serial.print(",");
-      Serial.print(rango);
-      Serial.print(",");
-      Serial.println(velocidad);
-    }
-  }
+   // 🔥 ENVÍO A PYTHON
+   Serial.print(humedad);
+   Serial.print(",");
+   Serial.print(rango);
+   Serial.print(",");
+   Serial.println(pwm);
 
-  delay(2000);
+   delay(2000);
 }
