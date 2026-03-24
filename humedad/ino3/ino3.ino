@@ -30,7 +30,7 @@ void loop() {
 
    humedad = h;
 
-   // 🔥 RANGOS
+   // 🔥 CONTROL POR RANGOS
    if (humedad >= 30 && humedad < 40) {
 
       digitalWrite(IN1, HIGH);
@@ -60,26 +60,20 @@ void loop() {
       pwm = 0;
       rango = "Fuera";
 
-      // 🔴 FRENO
+      // 🔴 FRENO DEL MOTOR
       digitalWrite(IN1, LOW);
       digitalWrite(IN2, LOW);
    }
 
+   // Aplicar PWM
    analogWrite(ENA, pwm);
 
-   // 🔥 RESPUESTA A PYTHON
-   if (Serial.available()) {
-      String comando = Serial.readStringUntil('\n');
-      comando.trim();
+   // 🔥 ENVÍO CONTINUO (CLAVE)
+   Serial.print(humedad);
+   Serial.print(",");
+   Serial.print(rango);
+   Serial.print(",");
+   Serial.println(pwm);
 
-      if (comando == "GET") {
-         Serial.print(humedad);
-         Serial.print(",");
-         Serial.print(rango);
-         Serial.print(",");
-         Serial.println(pwm);
-      }
-   }
-
-   delay(2000);
+   delay(2000); // cada 2 segundos
 }
