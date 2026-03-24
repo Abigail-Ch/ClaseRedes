@@ -17,6 +17,7 @@ def is_logged_in():
     return session.get("logged_in") is True
 
 
+# 🔌 Comunicación con servidor TCP
 def send_cmd(cmd: str) -> str:
     with socket.create_connection((TCP_HOST, TCP_PORT), timeout=3) as s:
         s.sendall((cmd + "\n").encode("utf-8"))
@@ -29,14 +30,15 @@ def send_cmd(cmd: str) -> str:
         return data.decode("utf-8", errors="ignore").strip()
 
 
-#  LOGIN
+# 🔐 LOGIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         user = request.form.get("username", "").strip()
         pw = request.form.get("password", "")
 
-        if user == APP_USER and pw == "1234":  # simple para tu caso
+        # 🔥 aquí puedes usar hash o simple
+        if user == APP_USER and pw == "1234":
             session["logged_in"] = True
             return redirect(url_for("index"))
 
@@ -45,13 +47,14 @@ def login():
     return render_template("login.html", error=None)
 
 
+# 🔓 LOGOUT
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
 
 
-#  DASHBOARD
+# 🖥️ DASHBOARD
 @app.route("/")
 def index():
     if not is_logged_in():
@@ -59,21 +62,21 @@ def index():
     return render_template("index.html")
 
 
-#  DATOS DEL SENSOR (LO NUEVO)
+# 📡 DATOS DEL SENSOR
 @app.route("/datos")
 def datos():
     if not is_logged_in():
         return jsonify({"error": "No autorizado"}), 401
 
     try:
-        resp = send_cmd("GET")  # pedimos datos al servidor TCP
+        resp = send_cmd("GET")  # 🔥 pide datos al Arduino
 
-        humedad, rango, velocidad = resp.split(",")
+        humedad, rango, pwm = resp.split(",")
 
         return jsonify({
             "humedad": humedad,
             "rango": rango,
-            "velocidad": velocidad
+            "velocidad": pwm
         })
 
     except:
