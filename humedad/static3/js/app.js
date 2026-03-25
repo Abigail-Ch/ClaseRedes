@@ -1,23 +1,27 @@
-function actualizarDatos() {
+console.log("JS cargado"); // 🔥 para verificar
+
+function actualizar() {
 
     fetch("/datos")
-        .then(response => response.json())
-        .then(data => {
+    .then(res => res.json())
+    .then(data => {
 
-            document.getElementById("humedad").innerText = data.humedad + " %";
-            document.getElementById("rango").innerText = data.rango;
-            document.getElementById("velocidad").innerText = data.velocidad;
+        console.log("DATA:", data); // 🔥 VER ESTO
 
-            document.getElementById("estado").innerText = "Conectado";
-        })
-        .catch(error => {
-            console.log(error);
-            document.getElementById("estado").innerText = "Error de conexión";
-        });
+        document.getElementById("humedad").textContent = data.humedad;
+        document.getElementById("rango").textContent = data.rango;
+        document.getElementById("velocidad").textContent = data.velocidad;
+
+        document.getElementById("estado").textContent = "Conectado";
+    })
+    .catch(err => {
+        console.log("ERROR:", err);
+        document.getElementById("estado").textContent = "Error";
+    });
 }
 
-// 🔥 cada 2 segundos
-setInterval(actualizarDatos, 2000);
+// cada 2 segundos
+setInterval(actualizar, 2000);
 
-// 🔥 al cargar la página
-window.onload = actualizarDatos;
+// ejecutar al inicio
+actualizar();
