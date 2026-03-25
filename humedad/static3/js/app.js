@@ -1,23 +1,53 @@
-async function actualizar() {
-    try {
-        const res = await fetch("/datos");
+const humedad = document.getElementById("humedad");
+const rango = document.getElementById("rango");
+const velocidad = document.getElementById("velocidad");
+const pwm = document.getElementById("pwm");
+const estado = document.getElementById("estado");
+const barra = document.getElementById("barra");
 
-        if (!res.ok) throw new Error();
+function actualizarEstilo(rangoTexto, valor) {
+    let porcentaje = Math.min(valor, 100);
 
-        const data = await res.json();
-
-        document.getElementById("humedad").textContent = data.humedad + " %";
-        document.getElementById("rango").textContent = data.rango;
-        document.getElementById("velocidad").textContent = data.velocidad;
-
-        document.getElementById("estado").textContent = "Conectado";
-        document.getElementById("estado").style.color = "#22c55e";
-
-    } catch {
-        document.getElementById("estado").textContent = "Error";
-        document.getElementById("estado").style.color = "#ef4444";
+    if (rangoTexto === "Baja") {
+        barra.style.width = porcentaje + "%";
+        barra.style.background = "#3b82f6";
+    } 
+    else if (rangoTexto === "Media") {
+        barra.style.width = porcentaje + "%";
+        barra.style.background = "#f59e0b";
+    } 
+    else if (rangoTexto === "Alta") {
+        barra.style.width = porcentaje + "%";
+        barra.style.background = "#ef4444";
+    } 
+    else {
+        barra.style.width = "0%";
+        barra.style.background = "#64748b";
     }
 }
 
-setInterval(actualizar, 2000);
-actualizar();
+async function actualizarDatos() {
+    try {
+        const res = await fetch("/get_data");
+        const data = await res.json();
+
+        if (!data.ok) {
+            estado.textContent = "Error";
+            return;
+        }
+
+        humedad.textContent = data.humedad + " %";
+        rango.textContent = data.rango;
+        velocidad.textContent = data.velocidad;
+        pwm.textContent = data.pwm;
+        estado.textContent = data.estado;
+
+        actualizarEstilo(data.rango, data.humedad);
+
+    } catch {
+        estado.textContent = "Sin conexión";
+    }
+}
+
+setInterval(actualizarDatos, 2000);
+actualizarDatos();
