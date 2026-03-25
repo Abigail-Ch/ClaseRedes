@@ -17,15 +17,13 @@ def is_logged_in():
     return session.get("logged_in") is True
 
 
-# 🔥 FUNCIÓN CLAVE (ARREGLADA)
 def send_cmd():
     try:
         with socket.create_connection((TCP_HOST, TCP_PORT), timeout=3) as s:
-            s.sendall(b"GET\n")  # da igual lo que mande
+            s.sendall(b"GET\n")
             data = s.recv(1024).decode().strip()
             return data
-    except Exception as e:
-        print("ERROR SOCKET:", e)
+    except:
         return None
 
 
@@ -49,7 +47,6 @@ def index():
     return render_template("index.html")
 
 
-# 🔥 ESTA RUTA ES LA CLAVE
 @app.route("/datos")
 def datos():
     if not is_logged_in():
@@ -57,24 +54,17 @@ def datos():
 
     resp = send_cmd()
 
-    print("RESPUESTA TCP:", resp)  # 🔥 VER ESTO EN CONSOLA
-
     if resp and "," in resp:
-        partes = resp.split(",")
+        h, r, v = resp.split(",")
+        return jsonify({"humedad": h, "rango": r, "velocidad": v})
 
-        if len(partes) == 3:
-            return jsonify({
-                "humedad": partes[0],
-                "rango": partes[1],
-                "velocidad": partes[2]
-            })
+    return jsonify({"humedad": "--", "rango": "Error", "velocidad": "--"})
 
-    # 🔴 SI FALLA
-    return jsonify({
-        "humedad": "--",
-        "rango": "Sin datos",
-        "velocidad": "--"
-    })
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
