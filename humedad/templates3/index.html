@@ -2,20 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Monitor</title>
+    <title>Dashboard Sensor</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-    <h1>Sensor</h1>
+<div class="container">
 
-    <p>Humedad: <span id="humedad">--</span></p>
-    <p>Rango: <span id="rango">--</span></p>
-    <p>Velocidad: <span id="velocidad">--</span></p>
+    <h1>🌡️ Monitor Inteligente</h1>
 
-    <p id="estado">Cargando...</p>
+    <div class="grid">
 
-    <!-- 🔥 ESTO ES CLAVE -->
-    <script src="/static/app.js"></script>
+        <div class="card">
+            <h2>Humedad</h2>
+            <p id="humedad">--</p>
+            <span class="unit">%</span>
+        </div>
+
+        <div class="card">
+            <h2>Rango</h2>
+            <p id="rango">--</p>
+        </div>
+
+        <div class="card">
+            <h2>Velocidad PWM</h2>
+            <p id="velocidad">--</p>
+        </div>
+
+        <div class="card estado">
+            <h2>Estado</h2>
+            <p id="estado">Desconectado</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/app.js"></script>
 
 </body>
 </html>
