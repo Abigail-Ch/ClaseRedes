@@ -1,23 +1,56 @@
 body {
-    font-family: Arial;
-    background: #0f172a;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
-    text-align: center;
 }
 
 .container {
-    width: 300px;
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 900px;
     margin: auto;
-    margin-top: 50px;
 }
 
 .card {
-    background: #1e293b;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+.card p {
+    font-size: 32px;
+    margin: 0;
+}
+
+.unit {
+    font-size: 14px;
+    color: #94a3b8;
 }
 
 .estado {
-    background: #334155;
+    border: 2px solid #334155;
 }
