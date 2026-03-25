@@ -12,7 +12,7 @@ DHT dht(DHTPIN, DHTTYPE);
  
 float humedad = 0;
 int pwm = 0;
-String rango = "Fuera";
+String rango = "Sin datos";
  
 void setup() {
   Serial.begin(9600);
