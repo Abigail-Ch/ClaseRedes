@@ -1,13 +1,13 @@
 #include <DHT.h>
 
-#define DHTPIN 7
+#define DHTPIN 2
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
 
 // Puente H
 const int ENA = 3;
-const int IN1 = 2;
+const int IN1 = 5;
 const int IN2 = 4;
 
 float humedad = 0.0;
@@ -18,24 +18,31 @@ int pwmValue = 0;
 
 String buffer = "";
 
+// 🔧 Control basado en HUMEDAD (tu lógica original)
 void actualizarControl(float hum) {
-  if (hum < 40.0) {
+  if (hum >= 30 && hum < 40) {
     rango = "Baja";
-    velocidad = "Lenta";
-    estado = "Humedad baja";
-    pwmValue = 90;
-  }
-  else if (hum >= 40.0 && hum < 60.0) {
-    rango = "Media";
     velocidad = "Media";
-    estado = "Humedad normal";
-    pwmValue = 170;
+    estado = "Humedad baja";
+    pwmValue = 120;
   }
-  else {
-    rango = "Alta";
+  else if (hum >= 40 && hum < 50) {
+    rango = "Media";
     velocidad = "Alta";
+    estado = "Humedad media";
+    pwmValue = 180;
+  }
+  else if (hum >= 50 && hum <= 70) {
+    rango = "Alta";
+    velocidad = "Maxima";
     estado = "Humedad alta";
     pwmValue = 255;
+  }
+  else {
+    rango = "Fuera";
+    velocidad = "Apagado";
+    estado = "Fuera de rango";
+    pwmValue = 0;
   }
 
   digitalWrite(IN1, HIGH);
@@ -43,6 +50,7 @@ void actualizarControl(float hum) {
   analogWrite(ENA, pwmValue);
 }
 
+// 📡 Respuesta tipo JSON (como tu ejemplo)
 String crearRespuesta() {
   String respuesta = "{";
   respuesta += "\"humedad\":" + String(humedad, 1) + ",";
@@ -62,7 +70,7 @@ void setup() {
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
 
-  digitalWrite(IN1, HIGH);
+  digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
   analogWrite(ENA, 0);
 }
@@ -75,6 +83,7 @@ void loop() {
     actualizarControl(humedad);
   }
 
+  // 📥 Espera comando desde Python
   while (Serial.available()) {
     char c = Serial.read();
 
