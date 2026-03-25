@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard Sensor</title>
-    <link rel="stylesheet" href="/static/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor del Sistema</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-
+ 
 <div class="container">
-
-    <h1>🌡️ Monitor Inteligente</h1>
-
-    <div class="grid">
-
-        <div class="card">
-            <h2>Humedad</h2>
-            <p id="humedad">--</p>
-            <span class="unit">%</span>
-        </div>
-
-        <div class="card">
-            <h2>Rango</h2>
-            <p id="rango">--</p>
-        </div>
-
-        <div class="card">
-            <h2>Velocidad PWM</h2>
-            <p id="velocidad">--</p>
-        </div>
-
-        <div class="card estado">
-            <h2>Estado</h2>
-            <p id="estado">Desconectado</p>
-        </div>
-
-    </div>
-
+<h1>Monitor del Sistema</h1>
+ 
+    <div class="card">
+<h2>Humedad</h2>
+<p><span id="humedad">--</span></p>
 </div>
-
-<script src="/static/app.js"></script>
-
+ 
+    <div class="card">
+<h2>Rango</h2>
+<p><span id="rango">--</span></p>
+</div>
+ 
+    <div class="card">
+<h2>Velocidad PWM</h2>
+<p><span id="velocidad">--</span></p>
+</div>
+ 
+    <div class="card estado">
+<h2>Estado</h2>
+<p id="estado">Cargando...</p>
+</div>
+ 
+    <a href="{{ url_for('logout') }}" class="btn-salir">Cerrar sesión</a>
+</div>
+ 
+<script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
