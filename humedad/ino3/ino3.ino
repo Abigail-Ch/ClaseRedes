@@ -1,75 +1,96 @@
 #include <DHT.h>
- 
-#define DHTPIN 2
+
+#define DHTPIN 7
 #define DHTTYPE DHT11
- 
-// Motor (puente H)
-#define IN1 5
-#define IN2 4
-#define ENA 3  // PWM
- 
+
 DHT dht(DHTPIN, DHTTYPE);
- 
-float humedad = 0;
-int pwm = 0;
-String rango = "Sin datos";
- 
+
+// Puente H
+const int ENA = 3;
+const int IN1 = 2;
+const int IN2 = 4;
+
+float humedad = 0.0;
+String rango = "";
+String velocidad = "";
+String estado = "";
+int pwmValue = 0;
+
+String buffer = "";
+
+void actualizarControl(float hum) {
+  if (hum < 40.0) {
+    rango = "Baja";
+    velocidad = "Lenta";
+    estado = "Humedad baja";
+    pwmValue = 90;
+  }
+  else if (hum >= 40.0 && hum < 60.0) {
+    rango = "Media";
+    velocidad = "Media";
+    estado = "Humedad normal";
+    pwmValue = 170;
+  }
+  else {
+    rango = "Alta";
+    velocidad = "Alta";
+    estado = "Humedad alta";
+    pwmValue = 255;
+  }
+
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  analogWrite(ENA, pwmValue);
+}
+
+String crearRespuesta() {
+  String respuesta = "{";
+  respuesta += "\"humedad\":" + String(humedad, 1) + ",";
+  respuesta += "\"rango\":\"" + rango + "\",";
+  respuesta += "\"velocidad\":\"" + velocidad + "\",";
+  respuesta += "\"estado\":\"" + estado + "\",";
+  respuesta += "\"pwm\":" + String(pwmValue);
+  respuesta += "}";
+  return respuesta;
+}
+
 void setup() {
   Serial.begin(9600);
   dht.begin();
- 
+
+  pinMode(ENA, OUTPUT);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
-  pinMode(ENA, OUTPUT);
- 
-  digitalWrite(IN1, LOW);
+
+  digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   analogWrite(ENA, 0);
 }
- 
+
 void loop() {
   float h = dht.readHumidity();
- 
-  if (isnan(h)) {
-    Serial.println("0,Error,0");
-    delay(2000);
-    return;
+
+  if (!isnan(h)) {
+    humedad = h;
+    actualizarControl(humedad);
   }
- 
-  humedad = h;
- 
-  if (humedad >= 30 && humedad < 40) {
-    digitalWrite(IN1, HIGH);
-    digitalWrite(IN2, LOW);
-    pwm = 120;
-    rango = "Baja";
+
+  while (Serial.available()) {
+    char c = Serial.read();
+
+    if (c == '\n') {
+      buffer.trim();
+
+      if (buffer == "GET_DATA") {
+        Serial.println(crearRespuesta());
+      }
+
+      buffer = "";
+    } else {
+      buffer += c;
+    }
   }
-  else if (humedad >= 40 && humedad < 50) {
-    digitalWrite(IN1, HIGH);
-    digitalWrite(IN2, LOW);
-    pwm = 180;
-    rango = "Media";
-  }
-  else if (humedad >= 50 && humedad <= 70) {
-    digitalWrite(IN1, HIGH);
-    digitalWrite(IN2, LOW);
-    pwm = 255;
-    rango = "Alta";
-  }
-  else {
-    pwm = 0;
-    rango = "Fuera";
-    digitalWrite(IN1, LOW);
-    digitalWrite(IN2, LOW);
-  }
- 
-  analogWrite(ENA, pwm);
- 
-  Serial.print(humedad, 1);
-  Serial.print(",");
-  Serial.print(rango);
-  Serial.print(",");
-  Serial.println(pwm);
- 
-  delay(2000);
+
+  delay(500);
+}
 }
