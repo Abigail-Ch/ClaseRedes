@@ -2,36 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Monitor de Humedad</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Monitor</title>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Monitor de Sensor</h1>
+    <h1>Sensor</h1>
 
-        <div class="card">
-            <h2>Humedad</h2>
-            <p id="humedad">-- %</p>
-        </div>
+    <p>Humedad: <span id="humedad">--</span></p>
+    <p>Rango: <span id="rango">--</span></p>
+    <p>Velocidad: <span id="velocidad">--</span></p>
 
-        <div class="card">
-            <h2>Rango</h2>
-            <p id="rango">--</p>
-        </div>
+    <p id="estado">Cargando...</p>
 
-        <div class="card">
-            <h2>Velocidad PWM</h2>
-            <p id="velocidad">--</p>
-        </div>
-
-        <div class="card estado">
-            <h2>Estado</h2>
-            <p id="estado">Esperando datos...</p>
-        </div>
-    </div>
-
-    <!-- 🔥 IMPORTANTE -->
+    <!-- 🔥 ESTO ES CLAVE -->
     <script src="/static/app.js"></script>
 
 </body>
