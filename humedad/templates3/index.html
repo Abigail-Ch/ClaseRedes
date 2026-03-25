@@ -3,40 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard - Monitor</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Panel de Control</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-<div class="topbar">
-    <h1>🌡️ Monitor de Humedad</h1>
-    <a href="{{ url_for('logout') }}" class="btn-salir">Salir</a>
+<div class="layout">
+
+    <header class="header">
+        <h1>💧 Monitor de Humedad</h1>
+        <a href="{{ url_for('logout') }}" class="logout">Salir</a>
+    </header>
+
+    <main class="grid">
+
+        <div class="card grande">
+            <h2>Humedad</h2>
+            <p id="humedad">--</p>
+
+            <div class="barra-bg">
+                <div id="barra" class="barra"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Rango</h3>
+            <p id="rango">--</p>
+        </div>
+
+        <div class="card">
+            <h3>Velocidad</h3>
+            <p id="velocidad">--</p>
+        </div>
+
+        <div class="card">
+            <h3>PWM</h3>
+            <p id="pwm">--</p>
+        </div>
+
+        <div class="card estado">
+            <h3>Estado</h3>
+            <p id="estado">--</p>
+        </div>
+
+    </main>
+
 </div>
 
-<div class="dashboard">
-
-    <div class="card">
-        <h2>Humedad</h2>
-        <p id="humedad">--</p>
-    </div>
-
-    <div class="card">
-        <h2>Rango</h2>
-        <p id="rango">--</p>
-    </div>
-
-    <div class="card">
-        <h2>Velocidad</h2>
-        <p id="velocidad">--</p>
-    </div>
-
-    <div class="card estado">
-        <h2>Estado del Sistema</h2>
-        <p id="estado">Cargando...</p>
-    </div>
-
-</div>
-
-<script src="{{ url_for('static', filename='app.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
