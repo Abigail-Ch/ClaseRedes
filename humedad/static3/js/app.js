@@ -1,27 +1,24 @@
-console.log("JS cargado"); // 🔥 para verificar
-
 function actualizar() {
 
     fetch("/datos")
-    .then(res => res.json())
-    .then(data => {
+    .then(r => r.json())
+    .then(d => {
 
-        console.log("DATA:", data); // 🔥 VER ESTO
+        document.getElementById("humedad").textContent = d.humedad;
+        document.getElementById("rango").textContent = d.rango;
+        document.getElementById("velocidad").textContent = d.velocidad;
 
-        document.getElementById("humedad").textContent = data.humedad;
-        document.getElementById("rango").textContent = data.rango;
-        document.getElementById("velocidad").textContent = data.velocidad;
+        let estado = document.getElementById("estado");
 
-        document.getElementById("estado").textContent = "Conectado";
+        estado.textContent = "Conectado";
+        estado.style.color = "#22c55e"; // verde
     })
-    .catch(err => {
-        console.log("ERROR:", err);
-        document.getElementById("estado").textContent = "Error";
+    .catch(() => {
+        let estado = document.getElementById("estado");
+        estado.textContent = "Sin conexión";
+        estado.style.color = "#ef4444"; // rojo
     });
 }
 
-// cada 2 segundos
 setInterval(actualizar, 2000);
-
-// ejecutar al inicio
 actualizar();
