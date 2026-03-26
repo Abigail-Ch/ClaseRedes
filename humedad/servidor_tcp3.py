@@ -10,41 +10,48 @@ BAUDRATE = 9600
 arduino = serial.Serial(SERIAL_PORT, BAUDRATE, timeout=2)
 time.sleep(2)
 
-def leer_arduino():
-    arduino.reset_input_buffer()
-    arduino.write(b"GET_DATA\n")
+# -------- FUNCIONES --------
+
+def leer_desde_arduino():
+    """Envía solicitud al Arduino y obtiene respuesta"""
+    try:
+        arduino.write(b"GET_DATA\n")
+        respuesta = arduino.readline().decode().strip()
+        return respuesta if respuesta else "{}"
+    except Exception as e:
+        print("Error al leer Arduino:", e)
+        return "{}"
+
+def procesar_peticion(mensaje):
+    """Decide qué hacer según el mensaje recibido"""
+    if mensaje.strip() == "GET_DATA":
+        return leer_desde_arduino()
+    return "Comando no reconocido"
+
+# -------- SERVIDOR --------
+
+def ejecutar_servidor():
+    servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    servidor.bind((HOST, PORT))
+    servidor.listen()
+
+    print(f"Servidor activo en {HOST}:{PORT}")
 
     while True:
-        respuesta = arduino.readline().decode("utf-8", errors="ignore").strip()
-        if respuesta.startswith("{") and respuesta.endswith("}"):
-            return respuesta
+        cliente, direccion = servidor.accept()
+        print("Cliente conectado:", direccion)
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((HOST, PORT))
-server.listen(5)
+        try:
+            datos = cliente.recv(1024).decode()
+            respuesta = procesar_peticion(datos)
+            cliente.sendall(respuesta.encode())
+        except Exception as e:
+            print("Error en conexión:", e)
+            cliente.sendall(b"Error interno")
+        finally:
+            cliente.close()
 
-print(f"Servidor TCP escuchando en {HOST}:{PORT}")
+# -------- MAIN --------
 
-while True:
-    conn, addr = server.accept()
-    print("Conexion desde:", addr)
-
-    try:
-        data = conn.recv(1024).decode("utf-8").strip()
-
-        if data == "GET_DATA":
-            respuesta = leer_arduino()
-
-            if respuesta:
-                conn.sendall((respuesta + "\n").encode("utf-8"))
-            else:
-                conn.sendall(b'{"error":"Sin respuesta del Arduino"}\n')
-        else:
-            conn.sendall(b'{"error":"Comando no valido"}\n')
-
-    except Exception as e:
-        mensaje = f'{{"error":"{str(e)}"}}\n'
-        conn.sendall(mensaje.encode("utf-8"))
-
-    finally:
-        conn.close()
+if __name__ == "__main__":
+    ejecutar_servidor()
