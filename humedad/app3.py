@@ -16,54 +16,71 @@ app.secret_key = SECRET_KEY
 def is_logged_in():
     return session.get("logged_in") is True
 
-def send_cmd(cmd: str) -> str:
-    with socket.create_connection((TCP_HOST, TCP_PORT), timeout=3) as s:
-        s.sendall((cmd + "\n").encode("utf-8"))
-        data = b""
-        while b"\n" not in data:
-            chunk = s.recv(1024)
-            if not chunk:
-                break
-            data += chunk
-        return data.decode("utf-8", errors="ignore").strip()
 
-@app.route("/login", methods=["GET", "POST"])
+# -------- FUNCIONES AUXILIARES --------
+
+def conectar_servidor():
+    """Realiza conexión con el servidor TCP"""
+    try:
+        cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        cliente.connect((TCP_HOST, TCP_PORT))
+        return cliente
+    except:
+        return None
+
+def solicitar_datos():
+    """Pide datos al servidor y los convierte a JSON"""
+    cliente = conectar_servidor()
+    if not cliente:
+        return {}
+
+    try:
+        cliente.sendall(b"GET_DATA")
+        respuesta = cliente.recv(1024).decode()
+        cliente.close()
+        return json.loads(respuesta)
+    except:
+        return {}
+
+
+# -------- RUTAS --------
+
+@app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        user = request.form.get("username", "").strip()
-        pw = request.form.get("password", "")
+        usuario = request.form.get("usuario")
+        password = request.form.get("password")
 
-        if user == APP_USER and check_password_hash(APP_PW_HASH, pw):
+        if usuario == APP_USER and check_password_hash(APP_PW_HASH, password):
             session["logged_in"] = True
-            return redirect(url_for("index"))
+            return redirect(url_for("dashboard"))
+        else:
+            return render_template("login.html", error="Credenciales incorrectas")
 
-        return render_template("login.html", error="Usuario o contraseña incorrectos")
+    return render_template("login.html")
 
-    return render_template("login.html", error=None)
+
+@app.route("/dashboard")
+def dashboard():
+    if not is_logged_in():
+        return redirect(url_for("login"))
+    return render_template("index.html")
+
+
+@app.route("/api/datos")
+def api_datos():
+    if not is_logged_in():
+        return jsonify({})
+    return jsonify(solicitar_datos())
+
 
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
 
-@app.route("/")
-def index():
-    if not is_logged_in():
-        return redirect(url_for("login"))
-    return render_template("index.html")
 
-@app.route("/get_data")
-def get_data():
-    if not is_logged_in():
-        return jsonify({"ok": False, "error": "No autorizado"}), 401
-
-    try:
-        resp = send_cmd("GET_DATA")
-        data = json.loads(resp)
-        data["ok"] = True
-        return jsonify(data)
-    except Exception as e:
-        return jsonify({"ok": False, "error": str(e)}), 500
+# -------- MAIN --------
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)
