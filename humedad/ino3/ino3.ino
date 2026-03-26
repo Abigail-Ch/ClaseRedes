@@ -18,7 +18,7 @@ int pwmValue = 0;
 
 String buffer = "";
 
-// 🔧 Control por humedad
+// Control por humedad
 void actualizarControl(float hum) {
   if (hum >= 30 && hum < 40) {
     rango = "Baja";
@@ -50,7 +50,7 @@ void actualizarControl(float hum) {
   analogWrite(ENA, pwmValue);
 }
 
-// 📡 JSON limpio (CLAVE)
+// JSON 
 String crearRespuesta() {
   String respuesta = "{";
   respuesta += "\"humedad\":" + String(humedad, 1) + ",";
@@ -83,7 +83,7 @@ void loop() {
     actualizarControl(humedad);
   }
 
-  // 🔥 RESPUESTA A GET_DATA (IMPORTANTE)
+  
   while (Serial.available()) {
     char c = Serial.read();
 
